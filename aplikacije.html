@@ -114,6 +114,48 @@
                 background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
             }
 
+            .backlay
+            {
+                width: 95%;
+                height: 80vh;
+                margin: 2.5vh auto;
+                background-color: #47050551;    
+                border-radius: 12px;
+                border: 1px solid #000000;
+                backdrop-filter: blur(5px);
+                padding: 20px;
+                padding-top: 50px;
+            }
+
+            .Memory
+            {
+                width: 300px;
+                height: 75px;
+                background-color: #ffffff;
+                display: flex;
+                border-radius: 10px;
+                border: 1px solid #000000;
+                
+                align-items: center;
+                justify-content: center;
+                margin : 0px;
+            }
+            
+
+            .droper
+            {
+                width: 300px;
+                height: 75px;
+                background-color: #ffffff;
+                display: flex;
+                border-radius: 10px;
+                border: 1px solid #000000;
+
+                align-items: center;
+                justify-content: center;
+                margin : 0px;
+            }
+
         </style>
     </head>
 
@@ -125,7 +167,7 @@
                 </a>
 
                 <nav class="navigation">
-                <a href="#">Početna</a>
+                <a href="pocetna.html">Početna</a>
                 <a href="omeni.html">O meni</a>
                 <a href="aplikacije.html">Aplikacije</a>
                 <a href="kontakt.html">Kontakt</a>
@@ -134,7 +176,17 @@
         </header>
 
         <main>
-         
+                <div class="backlay">
+                    <a style="text-decoration: none;color: #000000;" href="aplikacije/memorije.html"><div class="Memory">
+                        <h1>MEMORIJE</h1>
+                    </div>
+                    </a>
+
+                    <a style="text-decoration: none; color: #000000;" href="aplikacije/droper.html"><div class="droper" style="margin-top: 20px;">
+                        <h1>DROPER</h1>
+                    </div>
+                    </a>
+                </div>
         </main>
     </body>
 </html>

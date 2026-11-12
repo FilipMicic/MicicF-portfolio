@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Filip Micic
+        </title>
+
+       
+        <style>
+            *
+            {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .body
+            {
+                background-color: #ffffff;
+            }
+
+            .header 
+            {
+                width: 100%;
+                height: 80px;
+                background: linear-gradient(75deg, #000000 , #470505);
+                position: relative;
+                z-index: 10;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+            .header-content
+            {
+                max-width: 1200px;
+                height: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo
+            {
+                position: absolute;
+                top:5px;
+                left: max(5px, calc((100%-1230px)/2));
+
+                width: 90px;
+                height: 120px;
+
+                display: block;
+                z-index: 20;
+
+
+            }
+            .logo img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+            
+            .navigation
+            {
+                display: flex;
+                align-items: center;
+                gap: 35px;
+                margin-left: auto;
+            }
+
+            .navigation a
+            {
+                position: relative;
+
+                text-decoration: none;
+                color: #000000;
+
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.3px;
+
+                padding: 11px 22px;
+
+                background: #7c7c7cda;
+                border: 1px solid #ffffff;
+                border-radius: 12px;
+
+                transition: all 0.3s ease;
+            }
+
+            .navigation a:hover
+            {
+                background-color: #470505;
+                color: rgb(255, 255, 255);
+                border-color: rgb(255, 255, 255);
+
+                 transform: translateY(-3px);
+
+                  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            .hero
+            {
+                min-height: 600px;
+                background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .main
+            {
+                background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
+            }
+
+            .game
+            {
+                width: 80%;
+                min-height: 70vh;
+
+                margin: 70px auto;
+                padding: 30px;
+                
+                background-color: #9a9a9a;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .memorycontainer
+            {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                color: #ffffff;
+            }
+
+            .memorycontainer h1
+            {
+                font-size: 32px;
+            }
+
+            .game-info
+            {
+                display: flex;
+                gap: 50px;
+                font-size: 18px;
+            }
+
+            .game-board
+            {
+                display: grid;
+                grid-template-columns: repeat(6, 120px);
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .memory-card
+            {
+                width: 120px;
+                height: 120px;
+                background:none;
+
+                border:none;
+                cursor: pointer;
+
+                perspective: 1000px;
+            }
+
+            .card-inner
+            {
+                width: 100%;
+                height: 100%;
+
+                position: relative;
+                transform-style: preserve-3d;
+                transition: transform 0.6s;
+            }
+
+            .memory-card.flipped .card-inner, .memory-card.matched .card-inner
+            {
+                transform: rotateY(180deg);
+            }
+            
+            .card-front, .card-back
+            {
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+                
+                border: 2px solid #ffffff;
+                border-radius: 10px;
+
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+
+                overflow: hidden;
+            }
+            
+            .card-front
+            {
+                background-color: #470505;
+            }
+
+            .card-back
+            {
+                transform: rotateY(180deg);
+            }
+        
+
+            .memory-card img
+            {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: none;
+
+            }
+
+            .memory-card.flipped img, .memory-card.matched img
+            {
+                display: block;
+            }
+
+            #restart
+            {
+                padding: 12px 25px;
+                font-size: 16px;
+                background-color: #470505;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                border-radius: 8px;
+                cursor: pointer;
+
+                transition:0.3s;
+            }   
+
+            #restart:hover
+            {
+                background-color: #000000;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            #gameMessages
+            {
+                font-size: 18px;
+                color: #ffffff;
+            }
+
+            .description
+            {
+                width: 80%;
+                height: 20vh;
+                margin-top: 70px;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: #47050551;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            
+        </style>
+    </head>
+
+     
+
+    <body class="body">
+        <header class="header">
+            <div class="header-content">
+                <a href="#" class="logo">
+                   <img src="../slike/logo.png" alt="Mićić">
+                </a>
+
+                <nav class="navigation">
+                <a href="../pocetna.html">Početna</a>
+                <a href="../omeni.html">O meni</a>
+                <a href="../aplikacije.html">Aplikacije</a>
+                <a href="../kontakt.html">Kontakt</a>
+            </nav>
+            </div>
+        </header>
+
+        <main>
+         <div class="game">
+
+            <div class="memorycontainer">
+            <h1>MEMORIJA</h1>
+
+            <div class="game-info">
+                    <p>Potezi: <span id="move-count">0</span></p>
+                    <p>Pronadjeno: <span id="found-count">0</span>/9</p>
+            </div>
+
+            <div class="game-board" id="game-board">
+                <!-- Kartice će biti generisane ovde -->
+
+            </div>
+
+            <button id="restart">Pocni ponovo</button>
+
+            <p id="gameMessages"></p>
+         </div>
+         </div>
+         <div class="description">
+            <h1 class="title">Memorije</h1>
+            <p>Opis aplikacije Memorije...</p>
+         </div>
+        </main>
+
+        <script>
+            const cards = [
+                { id: 1, image: '../slike/memorije/1.png' },
+                { id: 2, image: '../slike/memorije/2.png' },
+                { id: 3, image: '../slike/memorije/3.png' },
+                { id: 4, image: '../slike/memorije/4.png' },
+                { id: 5, image: '../slike/memorije/5.png' },
+                { id: 6, image: '../slike/memorije/6.png' },
+                { id: 7, image: '../slike/memorije/7.png' },
+                { id: 8, image: '../slike/memorije/8.png' },
+                { id: 9, image: '../slike/memorije/9.png' }
+            ];
+
+            const gameBoard = document.getElementById('game-board');
+
+            const moveCountElement = document.getElementById('move-count');
+
+            const pairsDisplayElement = document.getElementById('found-count');
+            const gameMessagesElement = document.getElementById('gameMessages');
+
+            let firstCard = null;
+            let secondCard = null;
+
+            let lockBoard = false;
+
+            let moveCount = 0;
+            let foundPairs = 0;
+
+            function gameStart () {
+                
+                gameBoard.innerHTML = '';
+
+                moveCountElement.textContent = '0';
+                pairsDisplayElement.textContent = '0';
+                gameMessagesElement.textContent = '';
+
+                let gameCards = [...cards, ...cards];
+                gameCards.sort(() => Math.random() - 0.5);
+
+                gameCards.forEach(card => {
+                    const cardElement = document.createElement('button');
+
+                    cardElement.classList.add('memory-card');
+
+                    cardElement.dataset.id = card.id;
+                    
+                    cardElement.innerHTML = `
+                        <div class="card-inner">
+                            <div class="card-front"></div>
+                            <div class="card-back">
+                                <img src="${card.image}" alt="Card Image">
+                            </div>
+                        </div>
+                    `;
+
+                    cardElement.addEventListener('click', () => {
+                        if (lockBoard) return;
+                        if (cardElement === firstCard) return;
+                        if (cardElement.classList.contains('matched')) return;
+
+                        cardElement.classList.add('flipped');
+
+                        if (!firstCard) {
+                            firstCard = cardElement;
+                            return;
+                        }
+
+                        secondCard = cardElement;
+                        moveCount++;
+                        moveCountElement.textContent = moveCount;
+
+                        if (firstCard.dataset.id === secondCard.dataset.id) {
+                            foundPairs++;
+                            pairsDisplayElement.textContent = foundPairs;
+
+                            firstCard.classList.add('matched');
+                            secondCard.classList.add('matched');
+
+                            firstCard = null;
+                            secondCard = null;
+
+                            if (foundPairs === cards.length) {
+                                gameMessagesElement.textContent = 'Pobednik! Svi parovi su pronadjeni.';
+                            }
+                        } else {
+                            lockBoard = true;
+                            setTimeout(() => {
+                                firstCard.classList.remove('flipped');
+                                secondCard.classList.remove('flipped');
+
+                                firstCard = null;
+                                secondCard = null;
+                                lockBoard = false;
+                            }, 1000);
+                        }
+                    });
+
+
+                    gameBoard.appendChild(cardElement);   
+                });
+            }
+
+            document.getElementById('restart').addEventListener('click', gameStart);
+
+            gameStart();
+        </script>
+    </body>
+</html>
