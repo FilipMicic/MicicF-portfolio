@@ -26,11 +26,16 @@
             .header 
             {
                 width: 100%;
-                height: 80px;
-                background: linear-gradient(75deg, #000000 , #470505);
+                height: 85px;
+
+                background: linear-gradient(90deg, #080808 ,#150909, #080808);
+
                 position: relative;
                 z-index: 10;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+                border-bottom: 1px solid #8c23234d;
+
+                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
             }
             .header-content
             {
@@ -69,7 +74,7 @@
             {
                 display: flex;
                 align-items: center;
-                gap: 35px;
+                gap: 45px;
                 margin-left: auto;
             }
 
@@ -78,30 +83,46 @@
                 position: relative;
 
                 text-decoration: none;
-                color: #000000;
+                color: #bdb5b5;
 
                 font-size: 14px;
                 font-weight: 500;
-                letter-spacing: 0.3px;
+                letter-spacing: 0.5px;
 
-                padding: 11px 22px;
+                padding: 10px 0;
 
-                background: #7c7c7cda;
-                border: 1px solid #ffffff;
-                border-radius: 12px;
+                background: transparent;
 
-                transition: all 0.3s ease;
+                transition: color 0.3s ease;
             }
 
-            .navigation a:hover
+            .navigation a::after
             {
-                background-color: #470505;
-                color: rgb(255, 255, 255);
-                border-color: rgb(255, 255, 255);
+                content: '';
 
-                 transform: translateY(-3px);
+                position: absolute;
+                left: 0;
+                bottom: 0;
 
-                  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+                width: 100%;
+                height: 2px;
+
+                background: #a52b2b;
+                border-radius: 5px;
+                
+                transition: transform 0.3s ease;
+            }
+
+            .navigation a:hover, .navigation a.active
+            {
+                
+                color: #ffffff;
+    
+            }
+
+            .navigation a:hover::after, .navigation a.active::after
+            {
+                transform: scaleX(1.4);
             }
 
             .hero
