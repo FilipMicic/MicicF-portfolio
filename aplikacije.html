@@ -16,7 +16,21 @@
 
             .body
             {
-                background-color: #000000;
+                   background-color: #080808;
+
+    background-image:
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(100, 0, 15, 0.25),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 85% 80%,
+            rgba(75, 0, 10, 0.2),
+            transparent 40%
+        );
+
+    min-height: 100vh;
             }
 
             .header 
@@ -102,16 +116,23 @@
 
             .hero
             {
-                min-height: 600px;
-                background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                    min-height: 600px;
+                    background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
             }
 
-            .main
+           .cards-container
             {
-                background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+
+                width: 100%;
+                max-width: 1200px;
+
+                margin: 140px auto 0;
             }
 
             .backlay
@@ -119,18 +140,30 @@
                 width: 95%;
                 max-width: 1200px;
                 min-height: 70vh;
-                margin: 2.5vh auto;
-                background-color: #EFE6E5;    
+
+                margin: 60px auto;
+                padding: 40px;
+
+                background: linear-gradient(145deg, #211919 , #151010); 
+
                 border-radius: 24px;
-                border: 5px solid #470505;
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                padding: 45px;
-                padding-top: 50px;
-                box-shadow:#020202;
+                border: 1px solid rgba(140, 35, 35, 0.35);
+
+               /* backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);*/
+            
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7),
+                            0 0 0 40px rgba(100, 0, 15, 0.12),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+                position: relative;
+                overflow: hidden;
+
             }
 
-            .Memory
+            
+
+           /* .Memory
             {
                 width: 300px;
                 height: 75px;
@@ -157,7 +190,102 @@
                 align-items: center;
                 justify-content: center;
                 margin : 0px;
+            }*/
+
+
+            .Memory, .droper
+            {
+                min-height: 280px;
+                width: 100%;
+
+                
+                background: linear-gradient(
+                    145deg,
+                    #302020,
+                    #1c1414
+                );
+                display: flex;
+                border-radius: 18px;
+                border: 1px solid #482727;
+
+                align-items: center;
+                justify-content: center;
+
+                color: #ffffff;
+
+                text-decoration: none;
+
+                transition: all 0.3s ease;
+
+                cursor: pointer;
+
             }
+
+            .Memory:hover, .droper:hover
+            {
+                border-color: #a52b2b;
+
+                background: linear-gradient(
+                    145deg,
+                    #301919,
+                    #171010
+                );
+                transform: translateY(-8px);
+
+                box-shadow: 0 15px 35px rgba(100, 0, 0, 0.2);
+            }
+
+            .Memory h1, .droper h1
+            {
+                font-size: 30px;
+                font-weight: 700;
+                letter-spacing: 3px;
+                color:#ffffff;
+                transition: 0.3s;
+            }
+
+            @media (max-width: 900px) {
+                .cards-container
+                {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 650px) {
+                .cards-container
+                {
+                    grid-template-columns: 1fr;
+                    max-width: 400px;
+                    margin-top: 50px;
+                }
+                .backlay
+                {
+                    padding: 30px 20px;
+                }
+            }
+
+            .Memory:hover h1, .droper:hover h1
+            {
+                color: #e45b5b;
+            }
+
+            .background-text
+            {
+                position: absolute;
+
+                top: 30px;
+                right: 40px;
+
+                font-size: 100px;
+                font-weight: 900;
+
+                color: rgba(255, 255, 255, 0.025);
+                text-transform: uppercase;
+                letter-spacing: 10px;
+                pointer-events: none;
+                user-select: none;
+            }
+            
 
         </style>
     </head>
@@ -180,15 +308,40 @@
 
         <main>
                 <div class="backlay">
-                    <a style="text-decoration: none;color: #000000;" href="aplikacije/memorije.html"><div class="Memory">
-                        <h1>MEMORIJE</h1>
+                    <div class="background-text">
+                        HTMl projekti
                     </div>
+
+                    <div class="cards-container">
+                    <a href="aplikacije/memorije.html" class="Memory">
+                        <h1>MEMORIJE</h1>
                     </a>
 
-                    <a style="text-decoration: none; color: #000000;" href="aplikacije/droper.html"><div class="droper" style="margin-top: 20px;">
+                    <a href="aplikacije/droper.html" class="droper">
                         <h1>DROPER</h1>
-                    </div>
                     </a>
+
+                    <a href=# class="Memory">
+                        <h1>COMING SOON</h1>
+                    </a>
+
+                    <a href=# class="droper">
+                        <h1>COMING SOON</h1>
+                    </a>
+
+                    <a href=# class="Memory">
+                        <h1>COMING SOON</h1>
+                    </a>
+
+                    <a href=# class="droper">
+                        <h1>COMING SOON</h1>
+
+                    </a>
+                    <a href=# class="Memory">
+                        <h1>COMING SOON</h1> 
+                    </a>
+
+                    </div>
                 </div>
         </main>
     </body>

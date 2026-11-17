@@ -18,7 +18,21 @@
 
             .body
             {
-                background-color: #ffffff;
+                background-color: #080808;
+
+                background-image:
+                    radial-gradient(
+                        ellipse at 15% 20%,
+                        rgba(100, 0, 15, 0.25),
+                        transparent 40%
+                    ),
+                    radial-gradient(
+                        ellipse at 85% 80%,
+                        rgba(75, 0, 10, 0.2),
+                        transparent 40%
+                    );
+
+                    min-height: 100vh;
             }
 
             .header 
@@ -113,18 +127,20 @@
 
             .main
             {
-                background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
+                background: transparent;
             }
 
             .game
             {
+                border-radius: 25px;
+                border: 3px solid rgba(0, 0, 0, 0.35);
                 width: 80%;
                 min-height: 70vh;
 
                 margin: 70px auto;
                 padding: 30px;
                 
-                background-color: #9a9a9a;
+                background-color: #ffffff5b;
                 
                 display: flex;
                 align-items: center;
@@ -262,12 +278,23 @@
                 margin-top: 70px;
                 margin-left: auto;
                 margin-right: auto;
-                background-color: #47050551;
+                background: linear-gradient(145deg, #211919 , #151010);
+               
+                border-radius: 18px;
+                border: 1px solid rgba(0, 0, 0, 0.35);
+
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+                color: #ffffff;
+
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
+                gap: 20px;
             }
+
+           
 
             
         </style>
@@ -349,6 +376,14 @@
             function gameStart () {
                 
                 gameBoard.innerHTML = '';
+
+                moveCount = 0;
+                foundPairs = 0;
+
+                firstCard = null;
+                secondCard = null;
+
+                lockBoard = false;
 
                 moveCountElement.textContent = '0';
                 pairsDisplayElement.textContent = '0';
