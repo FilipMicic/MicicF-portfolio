@@ -138,7 +138,7 @@
 
 
 
-            .hero
+           /* .hero
             {
                 min-height: 600px;
                 background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
@@ -146,11 +146,235 @@
                 align-items: center;
                 justify-content: center;
             }
-
+*/
             .main
             {
                 background: repeating-radial-gradient(circle, #000000 #470505 #000000 #470505);
             }
+
+            .hero
+            {
+                display: grid;
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                align-items: stretch;
+                
+                gap: 60px;
+                max-width: 1200px;
+                margin: 70px auto 20px;
+                padding: 0 20px;
+
+            }
+
+            @keyframes cardAppear
+            {
+                from
+                {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+
+                to
+                {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .txt-one, .img-one, .txt-two, .txt-tri, .txt-four, .img-two,
+            .txt-pet, .txt-six, .img-tri
+                {
+                    min-height: 500px;
+                    min-width:0;
+                    height: auto;
+                    width: 100%;
+                    
+                    background: linear-gradient(145deg, #211919 , #151010); 
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                
+                    
+                    padding: 55px;
+                    border-radius: 24px;
+                    border: 1px solid rgba(140, 35, 35, 0.35);
+
+                
+                    gap: 20px;
+
+                    animation: cardAppear 0.8s ease both;
+
+                    transition: transform 0.35 ease,
+                        box-shadow 0.35 ease,
+                        border-color 0.35 ease;
+
+                }
+
+                .txt-one:hover, .img-one:hover, .txt-two:hover,
+                .txt-tri:hover, .txt-four:hover, .img-two:hover,
+                .txt-pet:hover, .txt-six:hover, .img-tri:hover
+                {
+                    transform: translateY(-8px);
+
+                    border-color: #a52b2bbf;
+
+                    box-shadow: 
+                        0 12px 30px rgba(120, 0, 0, 0.18),
+                        0 0 15px rgba(120, 0, 0, 0.08);
+                }
+
+                .txt-one h1, .txt-two h1, .txt-tri h1, .txt-four h1,
+                .txt-pet h1, .txt-six h1
+                {
+                    color: #a58b8b;
+                    font-size: clamp(24px, 2.2vw, 32px);
+                    font-weight:700;
+                    letter-spacing: 1px
+                }
+
+                .txt-one p, .txt-two p, .txt-tri p, .txt-four p,
+                .txt-pet p, .txt-six p
+                {
+                    color: #a58b8b;
+                    font-size: clamp(14px, 1.2vw, 16px);
+                    line-height: 1.6;
+                    overflow-wrap: break-word;
+                }
+
+                .img-one, .img-two, .img-tri
+                {
+                    overflow: hidden;
+                    padding: 25px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .img-one img, .img-two img, .img-tri img
+                {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    display: block;
+                    border-radius: 15px;
+
+                    transition: transform 0.5s ease;
+                }
+
+                .img-one:hover img, .img-two:hover img, .img-tri:hover img
+                {
+                    transform: scale(1.05);
+                }
+
+                .txt-one {animation-delay: 0.1s;}
+                .img-one {animation-delay: 0.2s;}
+                .txt-two {animation-delay: 0.3s;}
+
+                .txt-tri {animation-delay: 0.4s;}
+                .txt-four {animation-delay: 0.5s;}
+                .img-two {animation-delay: 0.6s;}
+
+                .img-tri {animation-delay: 0.7s;}
+                .txt-pet {animation-delay: 0.8s;}
+                .txt-six {animation-delay: 0.9s;}
+
+
+
+                @media (max-width:1100px)
+                {
+                    .hero
+                    {
+                        grid-template-columns: repeat(2,minmax(0,1fr));
+                        gap: 30px;
+                        margin-top: 45px;
+                    }
+                    .txt-one, .img-one, .txt-two, .txt-tri, .txt-four, .img-two,
+                    .txt-pet, .txt-six, .img-tri
+                    {
+                        padding: 35px;
+                    }
+
+                    .navigation
+                    {
+                        gap: 25px;
+                    }
+                }
+
+                @media (max-width:767px)
+                {
+                    .header
+                    {
+                        height: 75px;
+                    }
+
+                    .logo
+                    {
+                        left: 5px;
+                        top: 0;
+                        width: 65px;
+                        height: 90px;
+                    }
+
+                    .navigation
+                    {
+                        gap: 12px
+                    }
+
+                    .navigation a
+                    {
+                        font-size:11px ;
+                        letter-spacing: 0;
+                    }
+
+                    .hero
+                    {
+                        grid-template-columns: 1fr;
+                        gap: 22px;
+                        margin: 30px auto 0;
+                        padding: 0 15px;
+                    }
+
+                    .txt-one, .img-one, .txt-two, .txt-tri, .txt-four, .img-two,
+                    .txt-pet, .txt-six, .img-tri
+                    {
+                        width: 100%;
+                        min-height: 0;
+                        height: auto;
+                        padding: 28px;
+                        gap: 15px;
+                        border-radius: 20px;
+                    }
+
+                    .txt-one h1, .txt-two h1, .txt-tri h1, .txt-four h1,
+                    .txt-pet h1, .txt-six h1
+                    {
+                        font-size: 25px;
+                    }
+
+                    .txt-one p, .txt-two p, .txt-tri p, .txt-four p,
+                    .txt-pet p, .txt-six p
+                    {
+                        font-size: 14px;
+                        line-height: 1.6;
+                    }
+
+                    .img-one, .img-two, .img-tri
+                    {
+                        height: 350px;
+                        min-height: 350px;
+                    }
+
+                    .img-one img, .img-two img, .img-tri img
+                    {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+
+
+                }
+
 
         </style>
     </head>
@@ -172,7 +396,85 @@
         </header>
 
         <main>
-         
+            <div class="hero">        
+                <div class="txt-one">
+                    <h1>O meni</h1>
+                    <p>Zovem se Filip Mićić i student sam Prirodno-matematičkog fakulteta u Novom Sadu, 
+                        na Departmanu za matematiku i informatiku, 
+                        smer informacione tehnologije.
+                        Oduvek me je interesovalo programiranje, zbog čega sam odlučio da svoje obrazovanje 
+                        usmerim upravo u tom pravcu. 
+                        Sebe smatram radoznalom, ambicioznom i istrajnom osobom, uvek spremnom za učenje i nove izazove.
+            
+
+                    </p>
+                </div>
+
+                <div class="img-one">
+                    <img src="slike/micic1.png" alt="Filip Mićić">
+                </div>
+
+                <div class="txt-two">
+                    <h1>Moje ambicije</h1>
+                    <p>
+                        Moja glavna ambicija je da se profesionalno ostvarim u oblasti web ili game developmenta.
+                        Želim da konstantno unapređujem svoje programerske veštine, upoznajem nove tehnologije i
+                        stičem praktično iskustvo kroz rad na različitim projektima.<br>
+                        Dugoročno, cilj mi je da izgradim karijeru u oblasti koja mi pruža prostor za kreativnost, učenje i profesionalni napredak.
+                    </p>
+                </div>
+            
+                <div class="txt-tri">
+                    <h1>Prvi koraci</h1>
+                    <p>
+                       Rođen sam 2003. godine u Valjevu, gde sam i odrastao. 
+                       Svoj prvi računar dobio sam sa svega sedam godina, kada se rodila i moja ljubav prema tehnologiji. 
+                       Prve korake u programiranju napravio sam sa trinaest godina, pohađajući kurs programiranja u C-u. 
+                       Obrazovanje sam nastavio u Tehničkoj školi u Valjevu, gde sam dodatno razvijao svoje znanje i veštine 
+                       iz oblasti programiranja.
+                    </p>
+                </div>
+                <div class="txt-four">
+                    <h1>Moje veštine</h1>
+                    <p>
+                        Kroz dosadašnje obrazovanje i samostalni rad stekao sam znanje i iskustvo u različitim oblastima programiranja.
+                        Poznajem HTML, CSS, JavaScript i Javu, dok imam manje iskustvo u C, C++ i C#.
+                        Tokom rada na projektima upoznao sam se sa različitim pristupima rešavanja programerskih problema.
+                        Pored pisanja koda, posedujem iskustvo u radu sa razvojnim okruženjima, organizaciji projekta i pronalaženju rešenja za tehničke izazove.
+                    </p>
+                </div>
+                <div class="img-two">
+                    <img src="slike/micic1.png" alt="Filip Mićić">
+                </div>
+            
+                <div class="img-tri">
+                    
+                </div>
+
+                <div class="txt-pet">
+                    <h1>Hobiji</h1>
+                    <p>
+                        U slobodno vreme, pored programiranja, volim da igram video-igre i putujem.
+                         Želja mi je da obiđem što veći deo sveta i upoznam različita mesta, od najviših planinskih vrhova do 
+                         najlepših plaža. Takođe volim da vozim, pa se nadam da ću neka od svojih putovanja, posebno ona bliža Srbiji, 
+                         jednog dana ostvariti sopstvenim automobilom. Pored toga, uživam u šetnji i istraživanju prirode, 
+                         a tokom prethodne dve godine prešao sam gotovo 1.000 kilometara širom Srbije.
+                    </p>
+                </div>
+
+                <div class="txt-six">
+                    <h1>Zanimljivosti</h1>
+                    <p>
+                        - Prve korake u programiranju napravio sam sa 13 godina.<br>
+                        - Prešao sam skoro 1.000 km peške, noseći barjak Petra II Petrovića Njegoša.<br>
+                        - Veliki sam ljubitelj putovanja.<br>
+                        - Uživam u prirodi i istraživanju novih predela.<br>
+                        - Geografija je jedna od oblasti koja me posebno zanima.<br>
+                        - Volim da istražujem i otkrivam nove stvari.<br>
+                        - Ne bežim od izazova i novih iskustava.<br> 
+                    </p>
+                </div>
+            </div>
         </main>
     </body>
 </html>
