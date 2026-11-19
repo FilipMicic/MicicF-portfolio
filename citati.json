@@ -1,18 +1,58 @@
 
 [
     {
-        "quote": "Lepota je u malim stvarima koje život čine posebnim.",
-        "author": "Nepoznat autor",
+        "quote": "U dobru je lako biti dobar, na muci se poznaju junaci",
+        "author": "Petar II Petrović Njegoš",
         "image": "slike/hero.jpg"
     },
     {
-        "quote": "Svaki novi dan je nova prilika za nešto lepo.",
-        "author": "Marko Petrović",
+        "quote": "Tvrd je orah voćka čudnovata, ne slomi ga, al’ zube polomi.",
+        "author": "Petar II Petrović Njegoš",
         "image": "slike/hero.jpg"
     },
     {
-        "quote": "Život nije čekanje da oluja prođe, već učenje kako plesati na kiši.",
-        "author": "Vivian Greene",
+        "quote": "Strah životu kalja obraz često. Ko na brdo, ak i malo, stoji više vidi no onaj pod brdom.",
+        "author": "Petar II Petrović Njegoš",
         "image": "slike/hero.jpg"
+    },
+    {
+        "quote":"Svak je rođen da po jednom umre, čast i bruka žive dovijeka.",
+        "author":"Petar II Petrović Njegoš",
+        "image":"slike/hero.jpg"
+    },
+    {
+        "quote":"Ništa nije nemoguće za onoga ko ima volju pokušati.",
+        "author":"Aleksandar Veliki",
+        "image":"slike/hero.jpg"
+    },
+    {
+        "quote":"Ako već unapred sumnjate u svoj uspeh, neuspeh će vam lakše pasti jer ste ga mudro predvideli.",
+        "author":"Zoran Đinđić",
+        "image":"slike/hero.jpg"
+    },
+    {
+        "quote":"Tajna slobode počinje u hrabrosti",
+        "author":"Perikle",
+        "image":"slike/hero.jpg"
+    },
+    {
+        "quote":"Bolje umreti boreći se za slobodu nego robovati celog života",
+        "author":"Bob Marli",
+        "image":"slike/hero.jpg"
+    },
+    {
+        "quote":"Inteligencija bez ambicije je poput ptice bez krila.",
+        "author":"Salvador Dali",
+        "image":"slike/hero.jpg"
+    },
+    {
+        "quote":"Onaj ko nije dovoljno hrabar da rizikuje neće postići ništa u svome životu.",
+        "author":"Muhamed Ali",
+        "image":"slike/hero.jpg"
+    },
+    {
+        "quote":"Vreme je tu dovoljno dugo za one koji su spremni da ga iskoriste.",
+        "author":"Leonardo Da Vinči",
+        "image":"slike/hero.jpg"
     }
 ]
