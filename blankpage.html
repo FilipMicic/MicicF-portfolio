@@ -31,6 +31,7 @@
                     );
 
                     min-height: 100vh;
+                    padding-top: 85px;
             }
 
             .header 
@@ -40,8 +41,11 @@
 
                 background: linear-gradient(90deg, #080808 ,#150909, #080808);
 
-                position: relative;
-                z-index: 10;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
 
                 border-bottom: 1px solid #8c23234d;
 
@@ -188,15 +192,15 @@
     <body class="body">
         <header class="header">
             <div class="header-content">
-                <a href="../index.html" class="logo">
-                   <img src="../slike/logo.png" alt="Mićić">
+                <a href="index.html" class="logo">
+                   <img src="slike/logo.png" alt="Mićić">
                 </a>
 
                 <nav class="navigation">
-                <a href="../index.html">Početna</a>
-                <a href="../omeni.html">O meni</a>
-                <a href="../aplikacije.html">Aplikacije</a>
-                <a href="../kontakt.html">Kontakt</a>
+                <a href="index.html">Početna</a>
+                <a href="omeni.html">O meni</a>
+                <a href="aplikacije.html">Aplikacije</a>
+                <a href="kontakt.html">Kontakt</a>
             </nav>
             </div>
         </header>

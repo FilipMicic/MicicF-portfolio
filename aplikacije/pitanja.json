@@ -1,0 +1,348 @@
+
+{
+    "opste-znanje": {
+        "name": "OPŠTE ZNANJE",
+        "questions": [
+            {
+                "question": "Koja je najveća životinja na svetu?",
+                "answers": ["Afrički slon", "Plavi kit", "Žirafa", "Beli medved"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koliko kontinenata postoji?",
+                "answers": ["5", "6", "7", "8"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koji je najzastupljeniji gas u Zemljinoj atmosferi?",
+                "answers": ["Kiseonik", "Ugljen-dioksid", "Azot", "Vodonik"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koliko strana ima pravilni osmougao?",
+                "answers": ["6", "7", "8", "10"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koji je glavni grad Kanade?",
+                "answers": ["Toronto", "Vankuver", "Montreal", "Otava"],
+                "correctAnswer": 3
+            },
+            {
+                "question": "Koliko zuba obično ima odrasla osoba sa umnjacima?",
+                "answers": ["28", "30", "32", "36"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koji je najveći okean na Zemlji?",
+                "answers": ["Atlantski", "Indijski", "Arktički", "Tihi"],
+                "correctAnswer": 3
+            },
+            {
+                "question": "Ko je napisao roman 'Na Drini ćuprija'?",
+                "answers": ["Miloš Crnjanski", "Ivo Andrić", "Branislav Nušić", "Meša Selimović"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koliko minuta ima jedan dan?",
+                "answers": ["1240", "1340", "1440", "1540"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koja životinja je poznata kao 'kralj životinja'?",
+                "answers": ["Tigar", "Slon", "Lav", "Leopard"],
+                "correctAnswer": 2
+            }
+        ]
+    },
+    "istorija": {
+        "name": "ISTORIJA",
+        "questions": [
+            {
+                "question": "Koje godine je počeo Prvi svetski rat?",
+                "answers": ["1912.", "1914.", "1916.", "1918."],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koje godine je pao Berlinski zid?",
+                "answers": ["1985.", "1987.", "1989.", "1991."],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Ko je bio prvi rimski car?",
+                "answers": ["Julije Cezar", "Avgust", "Neron", "Trajan"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koje godine je počela Francuska revolucija?",
+                "answers": ["1776.", "1789.", "1804.", "1815."],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koje godine je počeo Drugi svetski rat?",
+                "answers": ["1937.", "1938.", "1939.", "1941."],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Ko je bio prvi čovek koji je kročio na Mesec?",
+                "answers": ["Jurij Gagarin", "Nil Armstrong", "Baz Oldrin", "Majkl Kolins"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koje godine je potpisana Deklaracija nezavisnosti SAD?",
+                "answers": ["1776.", "1789.", "1800.", "1812."],
+                "correctAnswer": 0
+            },
+            {
+                "question": "Ko je bio poznati vojskovođa iz Kartagine koji je prešao Alpe sa slonovima?",
+                "answers": ["Aleksandar Veliki", "Hannibal", "Spartak", "Leonida"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koje godine je počela Kosovska bitka?",
+                "answers": ["1217.", "1346.", "1389.", "1459."],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Ko je bio prvi predsednik Sjedinjenih Američkih Država?",
+                "answers": ["Abraham Linkoln", "Džon Adams", "Tomas Džeferson", "Džordž Vašington"],
+                "correctAnswer": 3
+            }
+        ]
+    },
+    "nauka": {
+        "name": "NAUKA",
+        "questions": [
+            {
+                "question": "Koja je hemijska oznaka za zlato?",
+                "answers": ["Ag", "Au", "Fe", "Go"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koja planeta je najbliža Suncu?",
+                "answers": ["Venera", "Mars", "Merkur", "Zemlja"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koliko kostiju ima odrasla osoba?",
+                "answers": ["186", "206", "226", "246"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koja je osnovna jedinica za merenje električne struje?",
+                "answers": ["Volt", "Vat", "Amper", "Om"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Kako se zove proces kojim biljke stvaraju hranu uz pomoć Sunčeve svetlosti?",
+                "answers": ["Disanje", "Fotosinteza", "Fermentacija", "Isparavanje"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koji organ u ljudskom telu proizvodi insulin?",
+                "answers": ["Jetra", "Bubreg", "Pankreas", "Želudac"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Kolika je približna brzina svetlosti u vakuumu?",
+                "answers": ["150.000 km/s", "300.000 km/s", "450.000 km/s", "600.000 km/s"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koji deo ćelije sadrži najveći deo genetskog materijala?",
+                "answers": ["Citoplazma", "Membrana", "Jedro", "Ribozom"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koja je hemijska formula vode?",
+                "answers": ["CO2", "H2O", "O2", "NaCl"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koja planeta je poznata po svojim izraženim prstenovima?",
+                "answers": ["Mars", "Jupiter", "Saturn", "Merkur"],
+                "correctAnswer": 2
+            }
+        ]
+    },
+    "sport": {
+        "name": "SPORT",
+        "questions": [
+            {
+                "question": "Koliko igrača jednog fudbalskog tima se nalazi na terenu na početku utakmice?",
+                "answers": ["9", "10", "11", "12"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koliko prstenova ima olimpijski simbol?",
+                "answers": ["4", "5", "6", "7"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "U kom sportu se koristi termin 'brejk'?",
+                "answers": ["Košarka", "Tenis", "Rukomet", "Odbojka"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koliko traje jedna četvrtina u NBA košarci?",
+                "answers": ["8 minuta", "10 minuta", "12 minuta", "15 minuta"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koja država je osvojila najviše FIFA Svetskih prvenstava u fudbalu?",
+                "answers": ["Nemačka", "Italija", "Argentina", "Brazil"],
+                "correctAnswer": 3
+            },
+            {
+                "question": "Koliko igrača jednog odbojkaškog tima se nalazi na terenu?",
+                "answers": ["5", "6", "7", "8"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Na kojoj podlozi se tradicionalno igra turnir Vimbldon?",
+                "answers": ["Šljaka", "Beton", "Trava", "Pesak"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koliko poena vredi šut iza linije za tri poena u košarci?",
+                "answers": ["1", "2", "3", "4"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "U kom sportu se takmiče vozači Formule 1?",
+                "answers": ["Motociklizam", "Automobilizam", "Biciklizam", "Karting"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koliko disciplina obuhvata desetoboj?",
+                "answers": ["8", "9", "10", "12"],
+                "correctAnswer": 2
+            }
+        ]
+    },
+    "geografija": {
+        "name": "GEOGRAFIJA",
+        "questions": [
+            {
+                "question": "Koja je najveća država na svetu po površini?",
+                "answers": ["Kanada", "Kina", "Rusija", "SAD"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koja je najduža reka u Evropi?",
+                "answers": ["Dunav", "Volga", "Rajna", "Sena"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Na kom kontinentu se nalazi pustinja Sahara?",
+                "answers": ["Azija", "Južna Amerika", "Afrika", "Australija"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koji je najviši vrh na svetu?",
+                "answers": ["Mont Blanc", "K2", "Kilimandžaro", "Mont Everest"],
+                "correctAnswer": 3
+            },
+            {
+                "question": "Koji moreuz razdvaja Evropu i Afriku?",
+                "answers": ["Bosfor", "Gibraltarski moreuz", "Doverski moreuz", "Beringov moreuz"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koji je glavni grad Australije?",
+                "answers": ["Sidnej", "Melburn", "Kanbera", "Pert"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koje je najveće jezero na svetu po površini?",
+                "answers": ["Bajkalsko jezero", "Viktorijino jezero", "Kaspijsko more", "Gornje jezero"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koja država ima oblik čizme na karti?",
+                "answers": ["Grčka", "Italija", "Španija", "Portugal"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Na kom kontinentu se nalazi planinski venac Anda?",
+                "answers": ["Afrika", "Azija", "Južna Amerika", "Severna Amerika"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koji je glavni grad Japana?",
+                "answers": ["Osaka", "Kjoto", "Tokio", "Hirošima"],
+                "correctAnswer": 2
+            }
+        ]
+    },
+    "tehnologija": {
+        "name": "TEHNOLOGIJA",
+        "questions": [
+            {
+                "question": "Koja kompanija je razvila operativni sistem Windows?",
+                "answers": ["Apple", "Google", "Microsoft", "IBM"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Šta znači skraćenica HTML?",
+                "answers": [
+                    "HyperText Markup Language",
+                    "HighText Machine Language",
+                    "HyperTransfer Main Language",
+                    "Home Tool Markup Language"
+                ],
+                "correctAnswer": 0
+            },
+            {
+                "question": "Koji od navedenih jezika se najčešće koristi za stilizovanje web stranica?",
+                "answers": ["Python", "CSS", "C++", "Java"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Šta predstavlja CPU u računaru?",
+                "answers": ["Grafičku karticu", "Radnu memoriju", "Centralni procesor", "Hard disk"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koja kompanija je razvila programski jezik Java?",
+                "answers": ["Sun Microsystems", "Microsoft", "Intel", "Adobe"],
+                "correctAnswer": 0
+            },
+            {
+                "question": "Šta znači skraćenica URL?",
+                "answers": [
+                    "Uniform Resource Locator",
+                    "Universal Reference Link",
+                    "Unified Resource Language",
+                    "User Routing Location"
+                ],
+                "correctAnswer": 0
+            },
+            {
+                "question": "Koji programski jezik se najčešće koristi za dodavanje interaktivnosti web stranicama?",
+                "answers": ["HTML", "CSS", "JavaScript", "SQL"],
+                "correctAnswer": 2
+            },
+            {
+                "question": "Koja kompanija proizvodi iPhone telefone?",
+                "answers": ["Samsung", "Apple", "Xiaomi", "Huawei"],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Šta je RAM memorija?",
+                "answers": [
+                    "Trajna memorija",
+                    "Privremena radna memorija",
+                    "Grafički procesor",
+                    "Mrežna kartica"
+                ],
+                "correctAnswer": 1
+            },
+            {
+                "question": "Koji protokol se najčešće koristi za bezbedan pristup web stranicama?",
+                "answers": ["FTP", "HTTP", "HTTPS", "SMTP"],
+                "correctAnswer": 2
+            }
+        ]
+    }
+}
