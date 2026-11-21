@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <title>
+            Filip Micic
+        </title>
+        <style>
+            *
+            {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .body
+            {
+                   background-color: #080808;
+
+                    background-image:
+                    radial-gradient(
+                        ellipse at 15% 20%,
+                        rgba(100, 0, 15, 0.25),
+                        transparent 40%
+                    ),
+                    radial-gradient(
+                        ellipse at 85% 80%,
+                        rgba(75, 0, 10, 0.2),
+                        transparent 40%
+                    );
+
+                    min-height: 100vh;
+            }
+
+            .header 
+            {
+                width: 100%;
+                height: 85px;
+
+                background: linear-gradient(90deg, #080808 ,#150909, #080808);
+
+                position: relative;
+                z-index: 10;
+
+                border-bottom: 1px solid #8c23234d;
+
+                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+            }
+            .header-content
+            {
+                max-width: 1200px;
+                height: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo
+            {
+                position: absolute;
+                top:5px;
+                left: max(5px, calc((100%-1230px)/2));
+
+                width: 90px;
+                height: 120px;
+
+                display: block;
+                z-index: 20;
+
+
+            }
+            .logo img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+            
+            .navigation
+            {
+                display: flex;
+                align-items: center;
+                gap: 45px;
+                margin-left: auto;
+            }
+
+            .navigation a
+            {
+                position: relative;
+
+                text-decoration: none;
+                color: #bdb5b5;
+
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+
+                padding: 10px 0;
+
+                background: transparent;
+
+                transition: color 0.3s ease;
+            }
+
+            .navigation a::after
+            {
+                content: '';
+
+                position: absolute;
+                left: 0;
+                bottom: 0;
+
+                width: 100%;
+                height: 2px;
+
+                background: #a52b2b;
+                border-radius: 5px;
+                
+                transition: transform 0.3s ease;
+            }
+
+            .navigation a:hover, .navigation a.active
+            {
+                
+                color: #ffffff;
+    
+            }
+
+            .navigation a:hover::after, .navigation a.active::after
+            {
+                transform: scaleX(1.4);
+            }
+
+
+            .game-container
+            {
+                width: 90%;
+                max-width: 1100px;
+                height: 550px;
+                
+                position: relative;
+                overflow: hidden;
+
+                margin: 70px auto;
+
+                border: 1px solid #8C232366;
+                border-radius: 24px;
+
+                background: #100c0c;
+
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+                
+            }
+
+            #gameCanvas
+            {
+                width: 100%;
+                height: 100%;
+                display: block;
+
+                filter:blur(5px);
+                transform: scale(1.05);
+                transition: filter 0.5s ease, transform 0.5s ease;
+            }
+
+            .game-container.started #gameCanvas
+            {
+                filter:blur(0);
+                transform: scale(1);
+            }
+
+            .game-overlay
+            {
+                position: absolute;
+                inset: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background-color: rgba(8, 5, 5, 0.55);
+                backdrop-filter: blur(3px);
+
+                z-index: 5;
+                transition: opacity 0.5s ease;
+            }
+
+            .game-overlay.hidden
+            {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .overlay-content
+            {
+                text-align: center;
+                padding: 25px;
+                
+            }
+
+            .overlay-small
+            {
+                font-size: 65px;
+                color: white;
+                font-weight: 900;
+                letter-spacing: 8px;
+
+                text-shadow: 0 0 30px rgba(165, 43, 43, 0.5);
+            }
+
+            .overlay-content h1
+            {
+                font-size: 65px;
+                color: white;
+                font-weight: 900;
+                letter-spacing: 8px;
+
+                text-shadow: 0 0 30px rgba(165, 43, 43, 0.5);
+            }
+
+            .overlay-content p
+            {
+                font-size: 16px;
+                color: #bba6a6;
+                margin-top: 15px;
+            }
+
+            #startButton
+            {
+                margin-top: 30px;
+                padding: 12px 30px;
+
+                font-size: 16px;
+                font-weight: 600;
+                color: white;
+                letter-spacing: 2px;
+
+                background:linear-gradient(90deg, #8c2323, #5c1515);
+                border: 1px solid #a52b2b;
+                border-radius: 12px;
+
+                cursor: pointer;
+
+                transition:0.3s ease;
+            }
+
+            #startButton:hover
+            {
+                transform: translateY(-5px);
+                background-color: #8c2323;
+                box-shadow: 0 8px 25px rgba(165, 43, 43, 0.3);
+            }
+
+            .controls-info
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+
+                font-size: 13px;
+                color: #a58b8b;
+            }
+
+            .contros-info i
+            {
+                font-size: 18px;
+                color: #d34c4c; 
+            }
+
+            .game-hud
+            {
+                position: absolute;
+                top: 20px;
+                left: 25px;
+                right: 25px;
+
+                display: flex;
+                justify-content: space-between;
+
+                z-index: 2;
+            }
+
+            .hud-item
+            {
+                font-size: 13px;
+                color: white;
+                font-weight: 600;
+                letter-spacing: 1px;
+
+                background-color: rgba(20, 12, 12, 0.85);
+                border: 1px solid rgba(140, 35, 35, 0.4);
+                
+
+                padding: 12px 18px;
+                border-radius: 12px;
+
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            }
+
+            .hud-item span
+            {
+                font-weight: 700;
+                color: #e45b5b;
+            }
+        
+             .description
+            {
+                width: 80%;
+                max-width: 1000px;
+                min-height: 230px;
+                margin: 50px auto 70px;
+                padding: 35px 45px;
+
+                background: linear-gradient(145deg, #1b1010, #100b0b);
+                border: 1px solid rgba(140, 35, 35, 0.35);
+                border-radius: 18px;
+
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+                color: #ffffff;
+                text-align: center;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 18px;
+            }
+
+            .description .title
+            {  
+                font-size: 32px;
+                font-weight: 900;
+                letter-spacing: 3px;
+                color:#ffffff;
+                text-shadow: 0 0 20px rgba(165, 43, 43, 0.4);
+            }
+
+            .description .description-text
+            {
+                max-width: 750px;
+                font-size: 15px;
+                line-height: 1.8;
+                color: #bba6a6;
+                font-weight: 400;
+
+            }
+
+            .description .highlight
+            {
+                color: #e45b5b;
+                font-weight: 6  00;
+            }
+
+           
+
+
+              @media (max-width:1100px)
+                {
+                    .navigation
+                    {
+                        gap: 25px;
+                    }
+
+                   
+                }
+
+                @media (max-width: 767px)
+                {
+
+                    .header
+                    {
+                        height: 75px;
+                    }
+
+                    .logo
+                    {
+                        left: 5px;
+                        top: 0;
+                        width: 65px;
+                        height: 90px;
+                    }
+
+                    .navigation
+                    {
+                        gap: 12px
+                    }
+
+                    .navigation a
+                    {
+                        font-size:11px ;
+                        letter-spacing: 0;
+                    }
+
+                    .game-container
+                    {
+                        width: 95%;
+                        height: 450px;
+                        margin: 35px auto;
+                    }
+
+                    .overlay-content h1
+                    {
+                        font-size: 42px;
+                    }
+
+                    .overlay-content p
+                    {
+                        font-size: 13px;
+                    }
+
+                    .game-hud
+                    {
+                        top: 10px;
+                        left: 10px;
+                        right: 10px;
+                    }
+
+                    .hud-item
+                    {
+                        font-size: 10px;
+                        padding: 9px;
+                    }
+
+                    .description
+                    {
+                        width: 95%;
+                        margin: 35px auto 45px;
+                        padding: 25px 20px;
+                    }
+                    .description .title
+                    {
+                        font-size: 23px;
+                    }
+
+                    .description .description-text
+                    {
+                        font-size: 13px;
+                    }
+
+                
+                }
+            
+
+        </style>
+    </head>
+
+    <body class="body">
+        <header class="header">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                   <img src="../slike/logo.png" alt="Mićić">
+                </a>
+
+                <nav class="navigation">
+                <a href="../index.html">Početna</a>
+                <a href="../omeni.html">O meni</a>
+                <a href="../aplikacije.html">Aplikacije</a>
+                <a href="../kontakt.html">Kontakt</a>
+            </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="game-container">
+                <canvas id="gameCanvas" width="900" height="500"></canvas>
+
+                <div class="game-overlay" id="gameOverlay">
+                    <div class="overlay-content">
+                        <p class="overlay-small">MICICF</p>
+                        <h1 id="overlayTitle">DROPER</h1>
+                        <p id="overlay-description">Uhvatite što više loptica možete</p>
+
+                        <button id="startButton">ZAPOČNI IGRU</button>
+
+                        <p class="controls-info">
+                            <i class="fa solid fa-arrow-left"></i>
+                            Pomeranje
+                            <i class="fa solid fa-arrow-right"></i>
+                        </p>
+                    </div>
+                 </div>
+
+
+                 <div class="game-hud">
+                    <div class="hud-item">
+                        POENI: <span id="score">0</span>
+                    </div>
+
+                    <div class="hud-item">
+                        PROMAŠAJI: <span id="misses">0</span>/3
+                    </div>
+                 </div>
+            </div>
+            <div class="description">
+            <h1 class="title">Droper</h1>
+            <p class="description-text">Spremi se za brzu arkadnu igru u kojoj su
+        <span class="highlight">refleksi i preciznost</span>
+        ključ uspeha! Sa neba neprestano padaju šarene loptice,
+        a tvoj zadatak je da ih uhvatiš pomoću hvataljke koju
+        kontrolišeš na tastaturi.
+        <br><br>
+        Pazi da ti ne pobegnu, jer imaš samo
+        <span class="highlight">tri dozvoljena promašaja</span>.
+        Uhvatiti što više loptica i postaviti novi rekord –
+        koliko dugo možeš da izdržiš?
+            </p>
+         </div>
+            
+        </main>
+
+        <script>
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+
+            const container = document.querySelector('.game-container');
+            const overlay = document.getElementById('gameOverlay');
+            const startButton = document.getElementById('startButton');
+
+            const scoreElement = document.getElementById('score');
+            const missesElement = document.getElementById('misses');
+
+            const WIDTH = canvas.width;
+            const HEIGHT = canvas.height;
+
+            let player = {
+                x: WIDTH / 2,
+                y: HEIGHT - 55,
+                width: 70,
+                speed: 7
+            };
+
+            let balls = [];
+
+            let score = 0;
+            let misses = 0;
+
+            let gameRunning = false;
+            let keys = {};
+
+            let spawnTimer = 0;
+            let animationId;
+
+            function drawBackground() {
+
+                const gradient = ctx.createLinearGradient(0, 0, 0, HEIGHT); 
+
+                gradient.addColorStop(0, '#170909');
+                gradient.addColorStop(1, '#080808');
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+                for(let i=0; i<35; i++){
+                    ctx.fillStyle = 'rgba(180, 50, 50, 0.15)';
+                    ctx.beginPath();
+                    ctx.arc((i*137) % WIDTH, (i*83) % HEIGHT, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function drawPlayer() {
+                const glow = ctx.createRadialGradient
+                (player.x, player.y - 10, 5, 
+                player.x, player.y - 10, 65);
+
+                glow.addColorStop(0, 'rgba(220, 50, 50, 0.3)');
+                glow.addColorStop(1, 'rgba(220, 50, 50, 0)');
+
+                ctx.fillStyle = glow;
+                ctx.beginPath();
+                ctx.arc(player.x, player.y - 10, 65, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.save();
+                ctx.translate(player.x, player.y);
+                
+
+                ctx.shadowColor = '#ff3333';
+                ctx.shadowBlur = 20;
+                ctx.fillStyle = '#a52b2b';
+
+                ctx.strokeStyle = '#ff7777';
+                ctx.lineWidth = 2;
+
+                ctx.beginPath();
+                ctx.roundRect(-35, -8, 70, 15, 8);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.shadowBlur = 0;
+                ctx.fillStyle = '#ffaaaa';
+                ctx.fillRect(-20, -4, 40, 3);
+
+                ctx.restore();
+
+            }
+
+            function createBall()
+            {
+                balls.push({
+                    x: Math.random() * (WIDTH - 30) + 15    ,
+                    y: -20,
+                    radius: 13,
+                    speed: 2.5 + Math.random() * 2
+                });
+            }
+
+            function drawBalls()
+            {
+                ctx.fillStyle = '#e45b5b';
+                balls.forEach(ball => {
+                   const gradient = ctx.createRadialGradient(ball.x - 4 , ball.y - 5, 2, ball.x, ball.y, ball.radius);
+                   gradient.addColorStop(0, '#ffaaaa');
+                   gradient.addColorStop(0.4, '#d34c4c');
+                   gradient.addColorStop(1, '#690d0d');
+
+                   ctx.beginPath();
+                   ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                   
+                   ctx.fillStyle = gradient;
+                   ctx.fill();
+
+                   ctx.strokeStyle = '#ff7777';
+                   ctx.lineWidth = 1;
+                   ctx.stroke();
+                });
+            }
+
+            function updateBalls()
+            {
+                for(let i = balls.length - 1; i >= 0; i--)
+                {
+                    let ball = balls[i];
+                    ball.y += ball.speed;
+
+                    if(ball.y + ball.radius >= player.y -40 &&
+                        ball.y - ball.radius <= player.y &&
+                        Math.abs(ball.x - player.x) < 45
+                    )
+                    {
+                        balls.splice(i, 1);
+                        score++;
+                        scoreElement.textContent = score;
+
+                        continue;
+                    }
+
+                    if(ball.y - ball.radius > HEIGHT+20)
+                    {
+                        balls.splice(i, 1);
+
+                        misses++;
+                        missesElement.textContent = misses;
+
+                        if(misses >= 3)
+                        {
+                            endGame();
+                            return;
+                        }
+                    }
+                }
+            }
+
+            function updatePlayer()
+            {
+                if(keys['ArrowLeft'] && player.x - player.width / 2 > 0)
+                {
+                    player.x -= player.speed;
+                }
+                if(keys['ArrowRight'] && player.x + player.width / 2 < WIDTH)
+                {
+                    player.x += player.speed;
+                }
+            }
+
+            function gameLoop()
+            {
+                if(!gameRunning) return;    
+
+                drawBackground();
+                ;
+                
+                
+                updatePlayer();
+
+                spawnTimer++;
+                if(spawnTimer > 55)
+                {
+                    createBall();
+                    spawnTimer = 0;
+                }
+
+                
+                updateBalls();
+
+                drawBalls();
+                drawPlayer();
+
+                if(gameRunning)
+                {
+                    animationId = requestAnimationFrame(gameLoop);
+                }
+                
+
+            }
+
+            function startGame()
+            {
+                cancelAnimationFrame(animationId);
+
+                
+
+                score = 0;
+                misses = 0;
+
+                balls = [];
+                spawnTimer = 0;
+
+                player.x = WIDTH / 2;
+
+                scoreElement.textContent = score;
+                missesElement.textContent = misses;
+                
+                gameRunning = true;
+                container.classList.add('started');
+                overlay.classList.add('hidden');
+                
+                
+
+                gameLoop();
+            }
+
+            function endGame()
+            {
+                gameRunning = false;
+                
+
+                document.getElementById('overlayTitle').textContent = 'KRAJ IGRE';
+                document.getElementById('overlay-description').textContent = `Vaš rezultat: ${score} poena`;
+
+                startButton.textContent = 'POKRENI PONOVO';
+                
+                container.classList.remove('started');
+                overlay.classList.remove('hidden');
+            }
+
+            startButton.addEventListener('click', startGame);
+
+            document.addEventListener('keydown',function(event)
+            {
+                if(event.key === 'ArrowLeft' || event.key === 'ArrowRight')
+                {
+                    event.preventDefault();
+                    keys[event.key] = true;
+                }
+
+               
+            });
+
+            document.addEventListener('keyup',function(event)
+            {
+                    keys[event.key] = false;
+
+            });
+
+            drawBackground();
+            drawPlayer();
+
+            
+        </script>
+    </body>
+</html>
