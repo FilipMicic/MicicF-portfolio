@@ -148,22 +148,21 @@
             {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 30px;
+                gap: 25px;
 
                 width: 100%;
                 max-width: 1200px;
 
-                margin: 140px auto 0;
+                margin: 35px auto 0;
             }
 
             .backlay
             {
-                width: 95%;
-                max-width: 1200px;
+                width: 90%;
                 min-height: 70vh;
 
-                margin: 60px auto;
-                padding: 40px;
+                margin: 70px auto;
+                padding: 55px;
 
                 background: linear-gradient(145deg, #211919 , #151010); 
 
@@ -173,12 +172,14 @@
                /* backdrop-filter: blur(15px);
                 -webkit-backdrop-filter: blur(15px);*/
             
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7),
-                            0 0 0 40px rgba(100, 0, 15, 0.12),
-                            inset 0 1px 0 rgba(255, 255, 255, 0.035);
+                color:#a58b8b;
+                font-size: 54px;
 
                 position: relative;
-                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-wrap: wrap;
 
             }
 
@@ -216,66 +217,115 @@
 
             .Memory, .droper
             {
-                min-height: 280px;
+                min-height: 160px;
                 width: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 
                 background: linear-gradient(
                     145deg,
-                    #302020,
-                    #1c1414
+                    #191313,
+                    #100c0c
                 );
-                display: flex;
-                border-radius: 18px;
-                border: 1px solid #482727;
 
-                align-items: center;
-                justify-content: center;
+                background: linear-gradient(
+                    145deg,
+                    #191313,
+                    #100c0c
+                );
+
+               
+                border-radius: 24px;
+                border: 1px solid rgba(140, 35, 35, 0.3);
+
+                
 
                 color: #ffffff;
 
                 text-decoration: none;
 
-                transition: all 0.3s ease;
+                box-shadow: 0 10px 30px rgba(100, 0, 0, 0.25);
+
+                transition: all 0.35s ease;
 
                 cursor: pointer;
 
+                position: relative;
+                overflow: hidden;
+
                 
 
+            }
+
+            .Memory::before, .droper::before
+            {
+                content: '';
+                position: absolute;
+                inset: 0;
+                
+
+                background: radial-gradient(
+                    circle at center,
+                    rgba(140, 35, 35, 0.16),
+                    transparent 70%
+                );
+
+                opacity: 0;
+                transition: opacity 0.35s ease;
             }
             
 
             .Memory:hover, .droper:hover
             {
-                border-color: #a52b2b;
+               
 
+                
+                transform: translateY(-8px);
+
+                border-color: #a52b2b;
                 background: linear-gradient(
                     145deg,
                     #301919,
                     #171010
                 );
-                transform: translateY(-8px);
-
                 box-shadow: 0 15px 35px rgba(100, 0, 0, 0.2);
+            }
+
+            .Memory:hover::before, .droper:hover::before
+            {
+                opacity: 1;
             }
 
             .Memory h1, .droper h1
             {
-                font-size: 30px;
+                position: relative;
+                z-index: 1;
+
+                font-size: 27px;
                 font-weight: 700;
                 letter-spacing: 3px;
                 color:#ffffff;
-                transition: 0.3s;
+                transition: all 0.35s ease;
             }
 
-            @media (max-width: 900px) {
+            .Memory:hover h1, .droper:hover h1
+            {
+                color: #e45b5b;
+                letter-spacing: 4px;
+            }
+
+            @media (max-width: 1100px) {
                 .cards-container
                 {
                     grid-template-columns: repeat(2, 1fr);
                 }
+                
             }
 
-            @media (max-width: 650px) {
+            @media (max-width: 767px) {
                 .cards-container
                 {
                     grid-template-columns: 1fr;
@@ -286,6 +336,7 @@
                 {
                     padding: 30px 20px;
                 }
+               
             }
 
             .Memory:hover h1, .droper:hover h1
@@ -295,7 +346,19 @@
 
             .background-text
             {
-                position: absolute;
+
+                width: 100%;
+                font-size: 36px;
+                font-weight: 800;
+                letter-spacing: 4px;
+                color: #ffffff;
+                text-align: left;
+
+                padding-bottom: 18px;
+                border-bottom: 1px solid rgba(140, 35, 35, 0.35);
+
+                position: relative; 
+              /*  position: absolute;
 
                 top: 30px;
                 right: 40px;
@@ -307,7 +370,22 @@
                 text-transform: uppercase;
                 letter-spacing: 10px;
                 pointer-events: none;
-                user-select: none;
+                user-select: none;*/
+            }
+
+            .background-text::after
+            {
+                content: '';
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+
+                width: 100%;
+                height: 2px;
+
+                background:#a52b2b;
+                border-radius: 5px;
+
             }
 
               @media (max-width:1100px)
@@ -315,6 +393,11 @@
                     .navigation
                     {
                         gap: 25px;
+                    }
+
+                    .background-text
+                    {
+                    font-size:32px
                     }
                 }
 
@@ -344,6 +427,19 @@
                         font-size:11px ;
                         letter-spacing: 0;
                     }
+
+                     .background-text
+                    {
+                    font-size: 24px;
+                    letter-spacing: 2px;
+                    padding-bottom: 12px;
+                    }
+
+                    .cards-container
+                    {
+                        position:relative;
+                        z-index: 6;
+                    }
                 }
             
 
@@ -369,7 +465,7 @@
         <main>
                 <div class="backlay">
                     <div class="background-text">
-                        HTMl projekti
+                        HTML PROJEKTI
                     </div>
 
                     <div class="cards-container">
@@ -400,6 +496,9 @@
                     <a href=# class="Memory">
                         <h1>COMING SOON</h1> 
                     </a>
+
+                    
+
 
                     </div>
                 </div>

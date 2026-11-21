@@ -300,6 +300,10 @@
                 margin-left: auto;
                 margin-right: auto;
                 background: linear-gradient(145deg, #211919 , #151010);
+                padding: 45px;
+                padding-bottom: 55px;
+                text-align:center;
+                font-weight: 700;
                
                 border-radius: 18px;
                 border: 1px solid rgba(0, 0, 0, 0.35);
@@ -320,6 +324,27 @@
                     .navigation
                     {
                         gap: 25px;
+                    }
+
+                    .game-board
+                    {
+                        grid-template-columns: repeat(4,minmax(0,1fr));
+                        width: 100%;
+                        max-width: 600px;
+                        gap: 12px;
+                    }
+
+                    .memory-card
+                    {
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 1 / 1;
+                    }
+
+                    .game
+                    {
+                        width: 90%;
+                        padding: 25px;
                     }
                 }
 
@@ -348,6 +373,70 @@
                     {
                         font-size:11px ;
                         letter-spacing: 0;
+                    }
+
+                    .game
+                    {
+                        width: 95%;
+                        min-height: auto;
+                        margin: 30px auto;
+                        padding: 20px 12px;
+                        border-radius: 15px;
+                    }
+
+                    .memory-card
+                    {
+                        gap: 15px;
+                    }
+
+                    .game-info
+                    {
+                        width: 100%;
+                        justify-content: center;
+                        gap: 25px;
+                        font-size: 14px;
+                    }
+                    .game-board
+                    {
+                        grid-template-columns: repeat(3,minmax(0,1fr));
+                        width: 100%;
+                        max-width: 420px;
+                        gap: 8px;
+                    }
+
+                    .memory-card
+                    {
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 1 / 1;
+                    }
+
+                    .card-front, .card-back
+                    {
+                        border-radius: 7px;
+                        border-width: 1px;
+                    }
+
+                    #restart
+                    {
+                        padding: 12px 22px;
+                        font-size: 14px;
+                    }
+
+                    #gameMessage
+                    {
+                        font-size: 14px;
+                        text-align: center;
+                    }
+
+                    .description
+                    {
+                        width: 95%;
+                        min-height: 150px;
+                        height: auto;
+                        padding: 20px;
+                        margin-top: 30px;
+                        text-align: center;
                     }
                 }
 
@@ -398,7 +487,11 @@
          </div>
          <div class="description">
             <h1 class="title">Memorije</h1>
-            <p>Opis aplikacije Memorije...</p>
+            <p>Memorija je zabavna igra koja testira tvoje pamćenje, koncetraciju i sposobnost zapažanja. 
+                Pred tobom se nalazi mnoštvo skrivenih kartica,
+                a tvoj zadatak je da otkriješ njihove parove. Svaki potez zahteva malo pažnje i dobro pamćene - zapamti gde se koja slika
+                nalazi i pokušaj da nađeš svih 9 parova uz što manje poteza. <br> <br> Koliko dobro pamtiš? Vreme je da proveriš!
+            </p>
          </div>
         </main>
 
