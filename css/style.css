@@ -65,7 +65,7 @@
                 height: 120px;
 
                 display: block;
-                z-index: 20;
+                z-index: 1002;
 
 
             }
@@ -129,6 +129,19 @@
             .navigation a:hover::after, .navigation a.active::after
             {
                 transform: scaleX(1.4);
+            }
+
+            .scroll-progress
+            {
+                position: fixed;
+                top: 84px;
+                left: 0;
+                width: 0%;
+                height: 3px;
+                background: #a52b2b;
+                box-shadow: 0 0 10px rgba(165, 43, 43, 0.7);
+                z-index: 999;
+                transition: width 0.1s linear;
             }
 
         
