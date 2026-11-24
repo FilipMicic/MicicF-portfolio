@@ -1,0 +1,21 @@
+.naslov i
+{
+    color: teal;
+    text-shadow: 0 5px 15px teal;
+}
+
+.opis span
+{
+    color:teal;
+}
+
+.opis i
+{
+    color:rgb(193, 159, 25);
+}
+
+.opis p
+{
+    text-shadow: 0 5px 10px teal;
+}
+

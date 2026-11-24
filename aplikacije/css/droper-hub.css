@@ -1,0 +1,83 @@
+.naslov i
+{
+    color: #1613c1;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0px 5px 15px #1613c1;
+}
+
+.naslov span
+{
+    color: #1613c1;
+    text-shadow: 0px 5px 15px #1613c1;
+   
+}
+
+.opis span
+{
+    font-weight: bold;
+    
+}
+
+.oblak
+{
+    color: rgb(12, 133, 239);
+}
+.zvezda
+{
+    color:yellow;
+}
+
+.rezultat
+{
+    color: #1613c1;
+}
+
+.fa-cloud
+{
+    color: skyblue;
+}
+
+.fa-trophy
+{
+    color: gold;
+}
+
+.kako-igrati
+{
+
+    font-size: 16px;
+    font-weight: bold;
+    
+    line-height: 1.8;
+}
+
+.kako-igrati p
+{
+    text-shadow: 0px 5px 15px #c11313;
+}
+
+.kako-igrati i
+{
+    font-size: 30px;
+}
+
+.fa-star
+{
+    color: yellow;
+}
+
+.fa-sun
+{
+    color: goldenrod;
+}
+
+.fa-bomb
+{
+    color: rgb(110, 110, 110);
+}
+
+.fa-heart
+{
+    color: red;
+}
