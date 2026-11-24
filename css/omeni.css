@@ -146,6 +146,10 @@
                 {
                     transform: scale(1.1);
                     border-color: #a52b2bbf;
+                    
+                    box-shadow: 
+                        0 12px 30px rgba(168, 2, 2, 0.18),
+                        0 0 15px rgba(156, 1, 1, 0.08);
 
                 }
 
