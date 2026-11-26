@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/auth.css">
+        <title>
+            Login - Filip Micic
+        </title>
+     
+    </head>
+
+    <body class="body">
+     <div class="scroll-progress" id="scroll-progress"></div>
+        <header class="header">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                   <img src="slike/logo.png" alt="Mićić">
+                </a>
+
+                <nav class="navigation">
+                <a href="index.html">Početna</a>
+                <a href="omeni.html">O meni</a>
+                <a href="aplikacije.html">Aplikacije</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+            </div>
+        </header>
+
+        <main class="auth-main">
+            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Povratak na početnu stranicu </a>
+            <div class="auth-container register-container">
+                <div class="auth-image">
+                    <i class="fas fa-user-lock"></i>
+                </div>
+
+                <h1>Dobrodošli <span>nazad!</span></h1>
+                <p class="subtitle" >Prijavite se na vaš nalog.</p>
+
+                <div id="authMessage" class="auth-message" role="alert" aria-live="polite">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span></span>
+                </div>
+                <form id="loginForm">
+
+
+
+                    <div class="input-group">
+                        <label for="email">Email adresa</label>
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" placeholder="Unesite email adresu" required>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="input-group">
+                        <label for="password">Lozinka</label>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" placeholder="Unesite lozinku" required>
+                            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                        </div>
+                    </div>
+
+                    <div class="auth-options">
+                        <label class="remember-me" for="rememberMe">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Zapamti me</span>
+                        </label>
+                           
+                          
+
+                            <a href="#" class="forgot-password">Zaboravili ste lozinku?</a>
+                        </div>
+                        
+
+               
+                    <button type="submit" class="auth-btn">Prijavi se</button>
+                </form>
+
+                <div class="auth-switch">
+                    <p>Nemate nalog? <a href="register.html">Registrujte se</a></p>
+                </div>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="js/supabase.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

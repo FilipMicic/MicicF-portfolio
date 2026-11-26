@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/aplikacije.css">
         <title>
-            Filip Micic
+            Aplikacije - Filip Micic
         </title>
        
     </head>
@@ -20,11 +21,40 @@
                 </a>
 
                 <nav class="navigation">
-                <a href="index.html">Početna</a>
-                <a href="omeni.html">O meni</a>
-                <a href="aplikacije.html">Aplikacije</a>
-                <a href="kontakt.html">Kontakt</a>
-            </nav>
+                    <a href="index.html">Početna</a>
+                    <a href="omeni.html">O meni</a>
+                    <a href="aplikacije.html">Aplikacije</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+                <div class="user-menu" id="user-menu">
+                    <!--logout ovan-->
+                
+                    <a class="login" id="loginLink" href="login.html"><i class="fas fa-user"></i></a>
+
+                    <!--Loginovan-->
+
+                    <button class="login profile-toggle" id="profileToggle" type="button" hidden>
+                    <i class="fas fa-user"></i>
+                    </button>    
+
+
+                    <div class="user-dropdown" id="userDropdown" hidden>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+
+                    <h3 id="userName">Korisnik</h3>
+                    <p id="userEmail">email@example.com</p>
+
+                    <div class="dropdown-divider"></div>
+
+
+
+                    <button class="logout" id="logoutButton" type="button">
+                        <i class="fas fa-sign-out-alt"></i> 
+                        Odjavi se
+                    </button>
+                </div>
             </div>
         </header>
 
@@ -35,7 +65,7 @@
                     </div>
 
                     <div class="cards-container">
-                    <a href="aplikacije/memorije.html" class="Memory">
+                    <a href="aplikacije/memorije-hub.html" class="Memory">
                         <h1>MEMORIJE</h1>
                     </a>
 
@@ -69,7 +99,11 @@
                     </div>
                 </div>
         </main>
-        <script src="js/aplikacije.js"></script>
-        <script src="js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+            <script src="js/supabase.js"></script>
+            
+            <script src="js/aplikacije.js"></script>
+            <script src="js/script.js"></script>
+            <script src="js/profile.js"></script>
     </body>
 </html>

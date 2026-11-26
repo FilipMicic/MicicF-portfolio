@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="css/memorije.css">
         <title>
-            Filip Micic
+            Memorije - Filip Micic
         </title>
 
        
@@ -28,6 +28,35 @@
                 <a href="../aplikacije.html">Aplikacije</a>
                 <a href="../kontakt.html">Kontakt</a>
             </nav>
+            <div class="user-menu" id="user-menu">
+                        <!--logout ovan-->
+                    
+                        <a class="login" id="loginLink" href="../login.html"><i class="fas fa-user"></i></a>
+
+                        <!--Loginovan-->
+
+                        <button class="login profile-toggle" id="profileToggle" type="button" hidden>
+                        <i class="fas fa-user"></i>
+                        </button>    
+
+
+                     <div class="user-dropdown" id="userDropdown" hidden>
+                        <div class="user-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+
+                        <h3 id="userName">Korisnik</h3>
+                        <p id="userEmail">email@example.com</p>
+
+                        <div class="dropdown-divider"></div>
+
+
+
+                        <button class="logout" id="logoutButton" type="button">
+                            <i class="fas fa-sign-out-alt"></i> 
+                            Odjavi se
+                        </button>
+                     </div>
             </div>
         </header>
 
@@ -52,18 +81,16 @@
             <p id="gameMessages"></p>
          </div>
          </div>
-         <div class="description">
-            <h1 class="title">Memorije</h1>
-            <p>Memorija je zabavna igra koja testira tvoje pamćenje, koncetraciju i sposobnost zapažanja. 
-                Pred tobom se nalazi mnoštvo skrivenih kartica,
-                a tvoj zadatak je da otkriješ njihove parove. Svaki potez zahteva malo pažnje i dobro pamćene - zapamti gde se koja slika
-                nalazi i pokušaj da nađeš svih 9 parova uz što manje poteza. <br> <br> Koliko dobro pamtiš? Vreme je da proveriš!
-            </p>
-         </div>
+         
         </main>
 
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="../js/supabase.js"></script>
+            
+            
         <script src="js/memorije.js"></script>
         <script src="../js/script.js"></script>
+        <script src="../js/profile.js"></script>
             
     </body>
 </html>

@@ -24,6 +24,35 @@
                 <a href="aplikacije.html">Aplikacije</a>
                 <a href="kontakt.html">Kontakt</a>
             </nav>
+            <div class="user-menu" id="user-menu">
+                <!--logout ovan-->
+            
+                <a class="login" id="loginLink" href="login.html"><i class="fas fa-user"></i></a>
+
+                <!--Loginovan-->
+
+                <button class="login profile-toggle" id="profileToggle" type="button" hidden>
+                <i class="fas fa-user"></i>
+                </button>    
+
+
+                <div class="user-dropdown" id="userDropdown" hidden>
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+
+                <h3 id="userName">Korisnik</h3>
+                <p id="userEmail">email@example.com</p>
+
+                <div class="dropdown-divider"></div>
+
+
+
+                <button class="logout" id="logoutButton" type="button">
+                    <i class="fas fa-sign-out-alt"></i> 
+                    Odjavi se
+                </button>
+                </div>
             </div>
         </header>
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/auth.css">
+        <title>
+            Register - Filip Micic
+        </title>
+     
+    </head>
+
+    <body class="body">
+     <div class="scroll-progress" id="scroll-progress"></div>
+        <header class="header">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                   <img src="slike/logo.png" alt="Mićić">
+                </a>
+
+                <nav class="navigation">
+                <a href="index.html">Početna</a>
+                <a href="omeni.html">O meni</a>
+                <a href="aplikacije.html">Aplikacije</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+            </div>
+        </header>
+
+        <main class="auth-main">
+            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Povratak na početnu stranicu </a>
+            <div class="auth-container register-container">
+                <div class="auth-image">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+
+                <h1>Napravi <span>nalog!</span></h1>
+                <p class="subtitle" >Registruj se i pridruži se našoj zajednici.</p>
+                <div id="authMessage" class="auth-message" role="alert" aria-live="polite">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span></span>
+                </div>
+                <form id="registerForm">
+
+                    <div class="input-group">
+                        <label for="username">Korisničko ime</label>
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="username" placeholder="Unesite korisničko ime" required minlength="3" maxlength="20">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email adresa</label>
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" placeholder="Unesite email adresu" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Lozinka</label>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" placeholder="Unesite lozinku" required minlength="8">
+                            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirm-password">Potvrdi lozinku</label>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirm-password" placeholder="Potvrdite lozinku" required>
+                            <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="auth-btn">Registruj se</button>
+                </form>
+
+                <div class="auth-switch">
+                    <p>Već imate nalog? <a href="login.html">Prijavite se</a></p>
+                </div>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="js/supabase.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/auth.js"></script>
+        
+    </body>
+</html>
