@@ -215,3 +215,220 @@
     
 }
 
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        width: 92%;
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .left {
+        flex: 0 0 32%;
+        margin-left: 0;
+    }
+
+    .backlay {
+        margin-right: 0;
+        padding: 30px;
+    }
+
+    .naslov {
+        font-size: 23px;
+    }
+
+    .opis {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .btn {
+        font-size: 30px;
+    }
+
+}
+
+
+/* ============================= */
+/* TELEFONI */
+/* ============================= */
+
+@media (max-width: 767px) {
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+
+        width: 92%;
+        min-height: auto;
+
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    /* LEVA KARTICA */
+
+    .left {
+        flex: none;
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 15px;
+    }
+
+    .imge {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .imge img {
+        width: 100%;
+        height: auto;
+    }
+
+    .tech {
+        margin: 15px 0;
+        justify-content: center;
+    }
+
+    .tech span {
+        font-size: 11px;
+        padding: 7px 10px;
+    }
+
+    .dugme,
+    .dugme-git {
+        height: 60px;
+    }
+
+    .dugme-git {
+        margin-top: 15px;
+    }
+
+    .btn {
+        font-size: 25px;
+    }
+
+    .kategorije {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .kategorije span {
+        font-size: 13px;
+    }
+
+
+    /* DESNA KARTICA */
+
+    .backlay {
+        flex: none;
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 22px 17px;
+    }
+
+    .naslov {
+        margin-top: 5px;
+        font-size: 21px;
+        gap: 8px;
+    }
+
+    .naslov h1 {
+        font-size: 27px;
+    }
+
+    .opis {
+        margin-top: 15px;
+        padding: 5px;
+
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: justify;
+    }
+
+    .izazov {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .funckionalnosti h1 {
+        font-size: 23px;
+        text-align: center;
+    }
+
+    /* FUNKCIONALNOSTI */
+
+    .funkcije {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .funk {
+        min-width: 0;
+        padding: 15px 8px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .funk h2 {
+        font-size: 15px;
+    }
+
+    .funk span {
+        font-size: 12px;
+    }
+
+    .funk i {
+        font-size: 23px;
+    }
+
+}
+
+
+/* ============================= */
+/* USKI TELEFONI */
+/* ============================= */
+
+@media (max-width: 380px) {
+
+    .hero {
+        width: 94%;
+    }
+
+    .backlay {
+        padding: 18px 13px;
+    }
+
+    .naslov h1 {
+        font-size: 23px;
+    }
+
+    .naslov {
+        font-size: 18px;
+    }
+
+    .opis {
+        font-size: 14px;
+    }
+
+    .funkcije {
+        grid-template-columns: 1fr;
+    }
+
+    .funk h2 {
+        font-size: 16px;
+    }
+
+}
