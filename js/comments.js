@@ -9,10 +9,15 @@ const commentList = document.getElementById('commentList');
 const commentsCount = document.getElementById('commentsCount');
 const commentMessage = document.getElementById('commentMessage');
 
+const deleteModal = document.getElementById('deleteModal');
+const cancelDelete = document.getElementById('cancelDelete');
+const confirmDelete = document.getElementById('confirmDelete');
+
 const projectSlug = commentSection.dataset.projectSlug;
 
 let currentUser = null;
 let currentProfile = null;
+let selectedCommentId = null;
 
 
 async function checkUser()
@@ -76,6 +81,9 @@ function updateCommentsCount(count)
 
 async function loadComments()
 {
+
+    commentList.textContent = 'Učitavanje komentara...';
+
     const { data: comments, error } = await supabaseClient
         .from('comments')
         .select('id, user_id, content, created_at, profiles(username, role)')
@@ -106,28 +114,36 @@ async function loadComments()
         const commentTop = document.createElement('div');
         commentTop.className = 'comment-top';
 
-        const commentUser = document.createElement('span');
-        commentUser.className = 'comment-user';
-        commentUser.textContent = comment.profiles?.username || 'Korisnik';
+        const avatar = document.createElement('div');
+        avatar.className = 'comment-avatar';
+        avatar.innerHTML = '<i class="fa-solid fa-user"></i>';
 
-        commentTop.appendChild(commentUser);
+        const userInfo = document.createElement('div');
+        userInfo.className = 'comment-user-info';
+
+        const username=document.createElement('span');
+        username.className='comment-user';
+        username.textContent=comment.profiles?.username || 'Korisnik';
+
 
         if(comment.profiles?.role === 'admin')
         {
             const adminBadge = document.createElement('span');
             adminBadge.className = 'comment-admin';
             adminBadge.textContent = 'ADMIN';
-            commentTop.appendChild(adminBadge);
+            username.appendChild(adminBadge);
         }
 
         const commentDate = document.createElement('span');
         commentDate.className = 'comment-date';
         commentDate.textContent = new Date(comment.created_at).toLocaleString('sr-RS');
 
-        commentTop.appendChild(commentDate);
+        userInfo.append(username,commentDate);
+
+        commentTop.append(avatar, userInfo);
 
         const commentContent = document.createElement('p');
-        commentContent.className = 'comment-content';
+        commentContent.className = 'comment-content';   
         commentContent.textContent = comment.content;
 
         commentElement.appendChild(commentTop);
@@ -140,15 +156,42 @@ async function loadComments()
 
         if(isOwner || isAdmin)
         {
-            const deleteButton = document.createElement('button');
-            deleteButton.className = 'comment-delete';
-            deleteButton.textContent = 'Obriši';
+            const actions = document.createElement('div');
+            actions.className = 'comment-actions';
 
-            deleteButton.addEventListener('click', () => {
-                deleteComment(comment.id);
+            const toggle = document.createElement('button');
+            toggle.className = 'comment-menu-toggle';
+            toggle.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
+            toggle.setAttribute('aria-label', 'Opcije komentara');
+
+            const menu = document.createElement('div');
+            menu.className = 'comment-menu';
+            menu.hidden = true;
+
+            const editButton = document.createElement('button');
+            //editButton.className = 'comment-edit';
+            editButton.innerHTML = '<i class="fa-solid fa-pen"></i> Izmeni';
+            editButton.disabled = true; // Onemogućeno dok se ne implementira edit funkcija
+
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-option';
+            deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i> Obriši';
+
+            toggle.addEventListener('click', () => {
+                menu.hidden = !menu.hidden;
             });
 
-            commentElement.appendChild(deleteButton);
+            deleteButton.addEventListener('click', async () => {
+                menu.hidden = true;
+                openDeleteModal(comment.id);
+            });
+
+
+
+            menu.append(editButton , deleteButton);
+            actions.append(toggle, menu);
+            commentElement.appendChild(actions);
+
         }
 
         commentList.appendChild(commentElement);
@@ -156,6 +199,14 @@ async function loadComments()
     });
         
 }
+
+document.addEventListener('click', (event) => {
+    if(!event.target.closest('.comment-menu') && !event.target.closest('.comment-menu-toggle')) {
+        document.querySelectorAll('.comment-menu').forEach(menu => {
+            menu.hidden = true;
+        });
+    }
+});
 
 
 
@@ -203,29 +254,6 @@ async function addComment()
 }
 
 
-async function deleteComment(commentId)
-{
-    const confirmed = confirm('Da li ste sigurni da želite da obrišete ovaj komentar?');
-
-    if(!confirmed)
-    {
-        return;
-    }
-
-    const { error } = await supabaseClient
-        .from('comments')
-        .delete()
-        .eq('id', commentId);
-
-    if(error)
-    {
-        console.error(error);
-        commentMessage.textContent = 'Greška prilikom brisanja komentara.';
-        return;
-    }   
-
-    await loadComments();
-}
 
 
 submitComment.addEventListener('click', addComment);
@@ -241,5 +269,57 @@ initComments();
 
 supabaseClient.auth.onAuthStateChange(async () => {
     await checkUser();
+    await loadComments();
+});
+
+
+function openDeleteModal(commentId)
+{
+    selectedCommentId = commentId;
+    deleteModal.hidden = false;
+}
+
+function closeDeleteModal()
+{
+    deleteModal.hidden = true;
+    selectedCommentId = null;
+    confirmDelete.disabled=false;
+    confirmDelete.textContent='Obriši';
+}
+
+
+cancelDelete.addEventListener('click', closeDeleteModal);
+
+
+deleteModal.addEventListener('click', event => {
+    if(event.target === deleteModal)
+    {
+        closeDeleteModal();
+    }
+});
+
+
+confirmDelete.addEventListener('click', async () => {
+    if(selectedCommentId === null) return;
+
+    confirmDelete.disabled=true;
+    confirmDelete.textContent='Brisanje...';
+
+    const { error } = await supabaseClient
+        .from('comments')
+        .delete()
+        .eq('id', selectedCommentId);
+
+    if(error)
+    {
+        console.error(error);
+        
+        confirmDelete.disabled=false;
+        confirmDelete.textContent='Pokušajte ponovo';
+
+        return;
+    }
+
+    closeDeleteModal();
     await loadComments();
 });
