@@ -44,7 +44,10 @@
                             <i class="fas fa-user-circle"></i>
                         </div>
 
-                        <h3 id="userName">Korisnik</h3>
+                        <h3 class="username-container">
+                            <span id="userName">Korisnik</span>
+                            <span class="admin-badge" id="adminBadge" hidden>Admin</span>
+                        </h3>
                         <p id="userEmail">email@example.com</p>
 
                         <div class="dropdown-divider"></div>
@@ -115,7 +118,33 @@
                     
                 
                 </div>
-            </hero>
+        
+
+            </div>
+
+            <section class="comment-section" id="comments" data-project-slug="memorije">
+                <div class="comment-header">
+                    <h1>Komentari</h1>
+                    <span id="commentsCount">0 komentara</span>
+                </div>
+
+                <div class="comment-form" id="commentForm" hidden>
+                    <textarea 
+                    id="commentInput" 
+                    placeholder="Unesite komentar..."
+                    maxlength="1000"
+                    ></textarea>
+                    <button id="submitComment">Objavi komentar</button>
+                </div>
+
+                <p id="loginToComment" hidden>Molimo vas da se <a href="../login.html">prijavite</a> kako biste ostavili komentar.</p>
+
+                <p id="commentMessage"></p>
+
+                <div class="comment-list" id="commentList">
+                    <p> Učitavanje komentara...</p>
+                </div>
+            </section>
             
         </main>
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -125,5 +154,6 @@
         
         <script src="../js/script.js"></script>
         <script src="../js/profile.js"></script>
+        <script src="../js/comments.js"></script>
     </body>
 </html>

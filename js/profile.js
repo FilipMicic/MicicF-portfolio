@@ -23,7 +23,7 @@ async function updateUserMenu(session)
 
         const { data: profile,error  } = await supabaseClient
             .from('profiles')
-            .select('username')
+            .select('username, role')
             .eq('id', session.user.id)
             .maybeSingle();
 
@@ -34,6 +34,12 @@ async function updateUserMenu(session)
 
         profileUsername.textContent = profile?.username || 'Korisnik';
         profileEmail.textContent = session.user.email || '';
+
+
+        if(adminBadge)
+        {
+            adminBadge.hidden = profile?.role !== 'admin';
+        }
 }
 
 

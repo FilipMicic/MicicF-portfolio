@@ -316,6 +316,28 @@
             }
 
 
+            .username-container
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .admin-badge
+            {
+                background-color: #8b3030;
+                color: #fff;
+
+                font-size: 10px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                
+                padding: 4px 7px;
+                border-radius: 4px;
+            }
+
 
             /*Explorer i Edge */
             input::-ms-reveal,
@@ -329,6 +351,9 @@
                 display: none !important;
                 pointer-events: none;
             }
+
+
+
             
             
 
@@ -374,6 +399,42 @@
                     {
                         font-size:11px ;
                         letter-spacing: 0;
+                    }
+
+                    .header-content {
+                        padding: 0 12px;
+                    }
+
+                    .logo {
+                        left: 5px;
+                        top: 0;
+                        width: 65px;
+                        height: 90px;
+                    }
+
+                    .navigation {
+                        gap: 12px;
+                        margin-left: auto;
+                    }
+
+                    .navigation a {
+                        font-size: 11px;
+                        letter-spacing: 0;
+                    }
+
+                    .login {
+                        width: 38px;
+                        height: 38px;
+
+                        margin-left: 12px;
+                        transform: none;
+
+                        font-size: 16px;
+                        flex-shrink: 0;
+                    }
+
+                    .login:hover {
+                        transform: scale(1.05);
                     }
 
                 
