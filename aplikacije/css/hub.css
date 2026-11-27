@@ -252,7 +252,7 @@
     color: #c0c0c0;
 }   
 
-#commentCount
+#commentsCount
 {
     font-size: 14px;
     color: #a88d8d;
@@ -350,6 +350,8 @@
     gap: 18px;
 }
 
+
+
 .comment
 {
     position: relative;
@@ -372,6 +374,8 @@
     background: rgba(255, 255, 255, 0.045);
     border: 1px solid rgba(180, 50, 50, 0.3);
 }
+
+
 
 .comment-top
 {
@@ -656,6 +660,14 @@
 {
     opacity: 0.6;
     cursor: wait;
+}
+
+.no-comments-message
+{
+    text-align: center;
+    color: #a88d8d;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
 

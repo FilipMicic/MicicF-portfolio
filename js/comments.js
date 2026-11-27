@@ -82,7 +82,6 @@ function updateCommentsCount(count)
 async function loadComments()
 {
 
-    commentList.textContent = 'Učitavanje komentara...';
 
     const { data: comments, error } = await supabaseClient
         .from('comments')
@@ -102,9 +101,11 @@ async function loadComments()
     updateCommentsCount(comments.length);
 
     if(comments.length === 0)
-    {
-        commentList.textContent = 'Nema komentara. Budi prvi koji će ostaviti komentar!';
-        return;
+    {   
+        const noCommentsMessage = document.createElement('p');
+        noCommentsMessage.textContent = 'Nema komentara. Budi prvi koji će ostaviti komentar!';
+        noCommentsMessage.className = 'no-comments-message';
+        commentList.appendChild(noCommentsMessage);
     }
 
     comments.forEach(comment => {
@@ -247,7 +248,7 @@ async function addComment()
     }
 
     commentInput.value = '';
-    commentMessage.textContent = 'Komentar je uspešno dodat.';
+
 
     await loadComments();
 

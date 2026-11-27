@@ -145,6 +145,23 @@
                     <p> Učitavanje komentara...</p>
                 </div>
             </section>
+
+            <div class="delete-modal" id="deleteModal" hidden>
+                <div class="delete-modal-box">
+                    <div class="delete-modal-icon">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+
+                    <h2>Obriši komentar?</h2>
+                    <p>Da li ste sigurni da želite da obrišete ovaj komentar? 
+                    Ova radnja se ne može poništiti.</p>
+
+                    <div class="delete-modal-buttons">
+                        <button class="cancel-delete" id="cancelDelete">Otkaži</button>
+                        <button class="confirm-delete" id="confirmDelete">Obriši</button>
+                    </div>
+                </div>
+            </div>
             
         </main>
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
