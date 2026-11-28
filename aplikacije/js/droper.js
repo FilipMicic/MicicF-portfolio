@@ -386,7 +386,6 @@ const canvas = document.getElementById('gameCanvas');
                 cancelAnimationFrame(animationId);
 
                 
-
                 score = 0;
                 misses = 0;
 
