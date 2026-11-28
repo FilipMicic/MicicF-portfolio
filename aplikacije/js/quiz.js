@@ -6,6 +6,7 @@
             
             const categoryModeButton = document.getElementById('category-mode');
             const randomModeButton = document.getElementById('random-mode');
+            const marathonModeButton = document.getElementById('marathon-mode');
 
             const questiontext = document.getElementById('question-text');
             const answerButtons = document.querySelectorAll('.answer-button');
@@ -86,6 +87,23 @@
 
                 selectedCategory = "random";
                 startGame(randomQuestions);
+            });
+
+            marathonModeButton.addEventListener('click', async () => {
+                const loaded = await questionPromise;
+
+                if (!loaded) {
+                    return;
+                }
+
+                const allQuestions = Object.values(categories).flatMap(category => category.questions.map
+                (question => ({ ...question, category: "MARATON" }))
+            );
+
+                const marathonQuestions = allQuestions.sort(() => Math.random() - 0.5).slice(0, 50);
+
+                selectedCategory = "marathon";
+                startGame(marathonQuestions);
             });
 
 
