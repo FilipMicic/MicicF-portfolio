@@ -286,8 +286,10 @@ if(resetPasswordForm) {
     resetPasswordForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const newPassword = document.getElementById('new-password').value;
-        const confirmNewPassword = document.getElementById('confirm-new-password').value;
+        const button = resetPasswordForm.querySelector('.auth-btn');
+
+        const newPassword = document.getElementById('newPassword').value;
+        const confirmNewPassword = document.getElementById('confirmPassword').value;
 
         if(!newPassword || !confirmNewPassword) {
             showMessage('Molimo unesite i potvrdite novu lozinku.', 'error');
