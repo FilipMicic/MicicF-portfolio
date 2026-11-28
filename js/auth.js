@@ -233,3 +233,47 @@ if(loginForm) {
         }
     });
 }
+
+
+const forgotPasswordLink = document.getElementById('forgotPassword');
+
+if(forgotPasswordLink) {
+    forgotPasswordLink.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+
+        if(!email) {
+            showMessage('Molimo unesite svoju email adresu za resetovanje lozinke.', 'error');
+            document.getElementById('email').focus();
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            showMessage('Unesite ispravnu email adresu.', 'error');
+            return;
+        }
+
+        forgotPasswordLink.style.pointerEvents = 'none';
+        forgotPasswordLink.textContent = 'Slanje email-a u toku...';
+
+
+        try {
+            const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+                redirectTo: 'https://filipmicic.github.io/MicicF-portfolio/reset-password.html'
+            });
+
+            if (error) throw error;
+
+            showMessage('Email za resetovanje lozinke je poslat. Proverite svoj inbox.', 'success');
+        }catch (error) {
+            console.error('Greska prilikom slanja email-a za resetovanje lozinke:', error);
+            showMessage('Došlo je do greške prilikom slanja email-a. Pokušajte ponovo.' + error.message, 'error');
+        }finally {
+            forgotPasswordLink.style.pointerEvents = 'auto';
+            forgotPasswordLink.textContent = 'Zaboravili ste lozinku?';
+        }
+    });
+}

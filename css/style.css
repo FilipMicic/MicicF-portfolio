@@ -437,6 +437,12 @@
                         transform: scale(1.05);
                     }
 
+                    .scroll-progress {
+                        top: 74px;
+                        height: 2px;
+                        z-index: 999;
+                    }
+
                 
                 }
             
