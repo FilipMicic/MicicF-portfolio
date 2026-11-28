@@ -277,3 +277,54 @@ if(forgotPasswordLink) {
         }
     });
 }
+
+
+
+const resetPasswordForm = document.getElementById('forgotPasswordForm');
+
+if(resetPasswordForm) {
+    resetPasswordForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const newPassword = document.getElementById('new-password').value;
+        const confirmNewPassword = document.getElementById('confirm-new-password').value;
+
+        if(!newPassword || !confirmNewPassword) {
+            showMessage('Molimo unesite i potvrdite novu lozinku.', 'error');
+            return;
+        }
+
+        if(newPassword !== confirmNewPassword) {
+            showMessage('Nova lozinka i potvrda lozinke se ne poklapaju.', 'error');
+            return;
+        }
+
+        if(newPassword.length < 8) {
+            showMessage('Nova lozinka mora imati najmanje 8 karaktera.', 'error');
+            return;
+        }
+
+        button.disabled = true;
+        button.textContent = 'Resetovanje lozinke u toku...';
+
+        try {
+            const { error } = await supabaseClient.auth.updateUser({
+                password: newPassword
+            });
+
+            if (error) throw error;
+
+            showMessage('Lozinka je uspešno resetovana! Možete se prijaviti sa novom lozinkom.', 'success');
+            resetPasswordForm.reset();
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            },2500);
+        } catch (error) {
+            console.error('Greska prilikom resetovanja lozinke:', error);
+            showMessage('Došlo je do greške prilikom resetovanja lozinke. Pokušajte ponovo.' + error.message, 'error');
+        } finally {
+            button.disabled = false;
+            button.textContent = 'Resetuj lozinku';
+        }
+    });
+}
