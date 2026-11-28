@@ -51,8 +51,13 @@
                 align-items: center;
                 justify-content: center;
 
-                background-color: rgba(5, 10, 30, 0.55);
-                backdrop-filter: blur(5px);
+                background: 
+                    radial-gradient(
+                        circle at 50% 40%, 
+                        rgba(48, 79, 149, 0.55),
+                        rgba(5, 12, 32, 0.88)
+                    );
+                backdrop-filter: blur(4px);
 
                 z-index: 5;
                 transition: opacity 0.5s ease;
@@ -66,62 +71,137 @@
 
             .overlay-content
             {
+                position: relative;
+
+                width: min(85%, 460px);
+                padding: 38px 35px;
+
                 text-align: center;
-                padding: 25px;
+
+                background: linear-gradient(
+                    145deg, 
+                    rgba(25, 46, 86, 0.96),
+                    rgba(9, 19, 45, 0.97));
+
+                border: 1px solid rgba(155, 190, 255, 0.35);
+                border-radius: 24px;
+
+                box-shadow: 
+                    0 15px 40px rgba(0, 0, 0, 0.4),
+                    0 0 35px rgba(95, 145, 255, 0.12),
+                    inset 0 1px rgba(255, 255, 255, 0.08);
+
+                overflow: hidden;
                 
             }
 
+
+            .overlay-decoration
+            {
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                gap: 22px;
+
+                margin-bottom: 18px;
+
+                color: #ffcf70;
+                
+            }
+
+            .overlay-decoration i
+            {
+                filter: drop-shadow(0 0 8px rgba(255, 205, 100, 0.6));
+            }
+
+            .overlay-decoration i:nth-child(2)
+            {
+                font-size: 30px;
+                color: #b9d7ff;
+                filter: drop-shadow(0 0 8px rgba(150, 195, 255, 0.5));
+            }
+
+            
+
             .overlay-small
             {
-                font-size: 15px;
-                color: #9ebaff;
+                font-size: 10px;
+                color: #a9c8f5;
                 font-weight: 700;
-                letter-spacing: 8px;
+                letter-spacing: 5px;
                 margin-bottom: 8px;
             }
 
             .overlay-content h1
             {
-                font-size: 65px;
+                font-size: 58px;
                 color: white;
                 font-weight: 900;
-                letter-spacing: 8px;
+                letter-spacing: 9px;
+                line-height: 1.1;
 
-                text-shadow: 0 0 15px rgba(120, 160, 255, 0.7),
+                text-shadow: 0 0 15px rgba(120, 170, 255, 0.7),
                             0 0 35px rgba(100, 130, 255, 0.4);
             }
 
-            .overlay-content p
+            .overlay-line
             {
-                font-size: 16px;
-                color: #c0cbea;
-                margin-top: 15px;
+                width: 65px;
+                height: 3px;
+
+                margin: 17px auto;
+
+                border-radius: 5px;
+
+                background: linear-gradient(90deg, transparent, #ffcf70, transparent);
+            }
+
+            .overlay-content p:not(.overlay-small)
+            {
+                font-size: 14px;
+                color: #c0d0ec;
+                margin-top: 12px;
             }
 
             #startButton
             {
-                margin-top: 30px;
-                padding: 14px 35px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
 
-                font-size: 15px;
-                font-weight: 700;
-                color: #10172e;
-                letter-spacing: 2px;
+                margin-top: 28px;
+                padding: 14px 32px;
 
-                background:linear-gradient(90deg, #ffe28a, #ffbd59);
-                border: none;
+                font-size: 13px;
+                font-weight: 800;
+
+                color: #18233e;
+                letter-spacing: 1.5px;
+
+                background: linear-gradient(
+                    135deg, 
+                    #ffe99c, 
+                    #ffc45e
+                );
+
+                border: 1px solid rgba(255, 255, 255, 0.3);
                 border-radius: 12px;
 
                 cursor: pointer;
 
-                box-shadow: 0 0 20px rgba(255, 195, 90, 0.25);
-                transition:0.3s ease;
+                box-shadow: 
+                    0 5px 20px rgba(255, 195, 90, 0.2),
+                    inset 0 1px rgba(255, 255, 255, 0.5);
+
+                transition: 0.3s ease;
+
             }
 
             #startButton:hover
             {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 25px rgba(255, 195, 90, 0.4);
+                transform: translateY(-4px);
+                box-shadow: 0 9px 25px rgba(255, 195, 90, 0.4);
             }
 
             .controls-info
@@ -131,14 +211,27 @@
                 justify-content: center;
                 gap: 12px;
 
-                font-size: 13px;
-                color: #aab9df;
+                margin-top: 27px;
+
+                font-size: 12px;
+                color: #d7f7fe;
+                letter-spacing: 1.5px;
             }
 
-            .controls-info i
+            .controls-keys
             {
-                font-size: 18px;
-                color: #ffcf70; 
+                width: 30px;
+                height: 30px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background: rgba(140, 180, 255, 0.12);
+                border: 1px solid rgba(160, 195, 255, 0.25);
+                border-radius: 8px;
+
+                color: #ffcf70;
             }
 
             .game-hud
@@ -231,7 +324,7 @@
             {
                 font-size: 19px;
                 color: #a9c9f5;
-                text-shadow: drop-shadow(0 0 5px rgba(120, 175, 255, 0.3));
+                filter: drop-shadow(0 0 5px rgba(120, 175, 255, 0.3));
                 transition: 0.3s ease;
             }
 
@@ -281,24 +374,76 @@
                         font-size:11px ;
                         letter-spacing: 0;
                     }
-                    .game-container
-                    {
-                        width: 96%;
-                        aspect-ratio: 16/9;
-                        max-height: calc(100dvh - 120px);
 
-                        margin: 15px auto;
-                        border-radius: 14px;
+                    .game-container {
+                        width: min(90%, 1100px, calc((100dvh - 180px) * 16 / 9));
+                        aspect-ratio: 16 / 9;
+                        height: auto;
+                        margin: 30px auto;
                     }
 
-                    .overlay-content h1
-                    {
-                        font-size: 42px;
+                    .game-overlay {
+                        padding: 12px;
+                        box-sizing: border-box;
                     }
 
-                    .overlay-content p
-                    {
-                        font-size: 13px;
+                    .overlay-content {
+                        width: 100%;
+                        max-width: 340px;
+                        padding: 22px 16px;
+                        border-radius: 18px;
+                        box-sizing: border-box;
+                        max-height: 95%;
+                        overflow-y: auto;
+                    }
+
+                    .overlay-decoration {
+                        gap: 15px;
+                        margin-bottom: 12px;
+                    }
+
+                    .overlay-decoration i:nth-child(2) {
+                        font-size: 24px;
+                    }
+
+                    .overlay-small {
+                        font-size: 8px;
+                        letter-spacing: 3px;
+                        margin-bottom: 5px;
+                    }
+
+                    .overlay-content h1 {
+                        font-size: clamp(32px, 9vw, 40px);
+                        letter-spacing: 5px;
+                    }
+
+                    .overlay-line {
+                        width: 45px;
+                        margin: 12px auto;
+                    }
+
+                    .overlay-content p:not(.overlay-small) {
+                        font-size: 12px;
+                        margin-top: 8px;
+                    }
+
+                    #startButton {
+                        width: 85%;
+                        padding: 12px 15px;
+                        margin-top: 19px;
+                        font-size: 11px;
+                        min-height: 44px;
+                    }
+
+                    .controls-info {
+                        gap: 9px;
+                        margin-top: 17px;
+                        font-size: 10px;
+                    }
+
+                    .control-key {
+                        width: 26px;
+                        height: 26px;
                     }
 
                     .game-hud
