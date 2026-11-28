@@ -323,7 +323,7 @@ const canvas = document.getElementById('gameCanvas');
 
                         document.querySelectorAll('.misses-icons i').forEach((cloud, index) => {
                             cloud.style.color = index < misses ? '#ff7777' : '#a9c9f5';
-                            cloud.style.fillter = index < misses 
+                            cloud.style.filter = index < misses 
                             ? 'drop-shadow(0 0 6px rgba(255, 90, 90, 0.5))' 
                             : 'drop-shadow(0 0 5px rgba(120, 175, 255, 0.3))';
                         });
